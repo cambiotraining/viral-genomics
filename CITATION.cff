@@ -1,0 +1,24 @@
+# Note: we use the author alias to record author contributions
+# This is a known limitation of CFF files: https://github.com/citation-file-format/citation-file-format/issues/112
+# Suggested author roles are given here: https://cambiotraining.github.io/quarto-course-template/materials/03-authorship.html#author-roles
+
+cff-version: 1.2.0
+title: "Working with Viral Genomes"
+message: >-
+  You may cite these materials using the metadata in this
+  file. Please cite our materials if you publish materials
+  derived from these, run a workshop using them, or use
+  the information in your own work.
+type: dataset
+authors:
+  - given-names: "Andries"
+    family-names: "van Tonder"
+    affiliation: "CRIT"
+    website: "https://scholar.google.com/citations?user=SxloJIkAAAAJ&hl=en"
+    orcid: "https://orcid.org/0000-0002-4380-5250"
+    alias: "Author"
+repository-code: "https://github.com/cambiotraining/viral-genomics"
+url: "https://cambiotraining.github.io/viral-genomics/"
+license: CC-BY-4.0
+commit: "FIX: commit hash"
+date-released: "2025-12-16"
