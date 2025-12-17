@@ -1,5 +1,42 @@
 book:
   chapters:
-    - part: "Section title"
+    - part: "Introduction"
       chapters:
-        - materials/00-template.md
+        - materials/01-introduction.md
+        - materials/02-preparing_data.md
+        - materials/03-intro_ngs.md
+        - materials/04-nextflow.md
+        - materials/05-nf_core.md
+        - materials/06-downloading.md
+    - part: "Sequence quality control"
+      chapters: 
+        - materials/07-intro_qc.md
+    - part: "Reference-based assembly"
+      chapters: 
+        - materials/08-mapping.md
+        - materials/09-variant_calling.md
+        - materials/10-lineages.md
+    - part: "Phylogenetics"
+      chapters: 
+        - materials/11-phylogenetics.md
+        - materials/12-tree_visualization.md
+        - materials/13-phylogeography.md
+    - part: "De-novo assembly"
+      chapters: 
+        - materials/14-assembly.md
+        - materials/15-assembly_qc.md
+    - part: "Recombination"
+      chapters: 
+        - materials/16-recombination.md
+        - materials/17-phylogenetics.md
+    - part: "Metaviromics"
+      chapters:
+        - materials/18-surveillance.md
+        - materials/19-abundance.md
+        - materials/20-visualisation.md
+    - part: "Outbreak!"
+      chapters:
+        - materials/21-outbreak.md
+  appendices: 
+    - materials/appendices/01-file_formats.md
+    - materials/appendices/02-course_software.md
