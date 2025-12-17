@@ -1,0 +1,926 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Working with Viral Genomes",
+    "section": "",
+    "text": "Working with Viral Genomes",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Working with Viral Genomes",
+    "section": "Overview",
+    "text": "Overview\nCOURSE CURRENTLY UNDER DEVELOPMENT\n\n\n\n\n\n\nTipLearning Objectives\n\n\n\n\nList course learning objectives here.\nThese describe concepts the learners should grasp and techniques they should be able to use by the end of the course.\nYou can think of these as completing the phrase “after this course, the participant should be able to…”\nThey are not supposed to be as detailed as the learning objectives of each section, but more high-level.\n\n\n\n\nTarget Audience\nBrief description of target audience here.\n\n\nPrerequisites\nDetail any prerequisite skills needed to attend this course, with links to other relevant materials/courses if possible.\n\n\n\nExercises\nExercises in these materials are labelled according to their level of difficulty:\n\n\n\n\n\n\n\nLevel\nDescription\n\n\n\n\n  \nExercises in level 1 are simpler and designed to get you familiar with the concepts and syntax covered in the course.\n\n\n  \nExercises in level 2 combine different concepts together and apply it to a given task.\n\n\n  \nExercises in level 3 require going beyond the concepts and syntax introduced to solve new problems.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#citation-authors",
+    "href": "index.html#citation-authors",
+    "title": "Working with Viral Genomes",
+    "section": "Citation & Authors",
+    "text": "Citation & Authors\nPlease cite these materials if:\n\nYou adapted or used any of them in your own teaching.\nThese materials were useful for your research work. For example, you can cite us in the methods section of your paper: “We carried our analyses based on the recommendations in YourReferenceHere”.\n\n\nYou can cite these materials as:\n\nvan Tonder, A. (2025). \"Working with Viral Genomes\". \"https://cambiotraining.github.io/viral-genomics/\"\n\nOr in BibTeX format:\n@misc{YourReferenceHere,\n  author = {van Tonder, Andries},\n  month = {12},\n  title = {\"Working with Viral Genomes\"},\n  url = {\"https://cambiotraining.github.io/viral-genomics/\"},\n  year = {2025}\n}\nAbout the authors:\nAndries van Tonder  \nAffiliation: Cambridge Centre for Research Informatics Training Roles: conceptualisation; primary author; data curation; coding; software",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#acknowledgements",
+    "href": "index.html#acknowledgements",
+    "title": "Working with Viral Genomes",
+    "section": "Acknowledgements",
+    "text": "Acknowledgements\n\n\nList any other sources of materials that were used.\nOr other people that may have advised during the material development (but are not authors).",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Data & Setup",
+    "section": "",
+    "text": "Data\nThe data used in these materials is provided as a zip file. Download and unzip the folder to your Desktop to follow along with the materials.\nDownload",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "Data & Setup"
+    ]
+  },
+  {
+    "objectID": "setup.html#software",
+    "href": "setup.html#software",
+    "title": "Data & Setup",
+    "section": "Software",
+    "text": "Software\n\nQuarto\nTo develop and render the course materials website, you will need to install Quarto:\n\nDownload and install Quarto (available for all major OS).\nIf you are developing materials using executable .qmd documents, it is recommended that you also install the extensions for your favourite IDE (e.g. RStudio, VS Code).\nIf you are developing materials using JupyterLab or Jupyter Notebooks, please install Jupytext.\n\nUse the paired notebook feature to have synchronised .ipynb/.qmd files. Only .qmd files should be pushed to the repository (.ipynb files have been added to .gitignore).",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Welcome",
+      "Data & Setup"
+    ]
+  },
+  {
+    "objectID": "materials/01-introduction.html",
+    "href": "materials/01-introduction.html",
+    "title": "1  Introduction to Viral Genomics",
+    "section": "",
+    "text": "1.1 Summary\nBefore starting your analysis, it’s important to understand the characteristics of the species you’re working with as this will determine how best to proceed. In particular, you need to understand how much genetic diversity or plasticity is present in your bug and whether or not it recombines. For instance the approach you take to build a phylogenetic tree of Mycobacterium tuberculosis genomes will differ from the methods you’d use to build a tree with Escherichia coli. To help with making your decision, we’ve provided a flowchart which outlines the best approach to take depending on what your dataset is composed of:\nThis week, we’re going to work with three different bacterial species that each require a different analysis path through the diagram above.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Viral Genomics</span>"
+    ]
+  },
+  {
+    "objectID": "materials/01-introduction.html#summary",
+    "href": "materials/01-introduction.html#summary",
+    "title": "1  Introduction to Viral Genomics",
+    "section": "",
+    "text": "TipKey Points\n\n\n\n\nThree main things should be considered when choosing an analysis workflow for bacterial sequencing data:\n\nHow diverse is the species? Monoclonal species usually have lower diversity in the population.\nDo your isolates likely come from multiple lineages?\nIs bacterial recombination common in your species (transformation, transduction, conjugation)?\n\nDepending on the answer to these questions, your analyses workflow may involve:\n\nMapping to a reference genome or using a pan-genome approach.\nIncluding a recombination removal step.\n\nThe end goal of most bacterial genomics projects is the generation of a phylogenetic tree representing the relationships and diversity of your isolates.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Introduction to Viral Genomics</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02-preparing_data.html",
+    "href": "materials/02-preparing_data.html",
+    "title": "2  Preparing data",
+    "section": "",
+    "text": "2.1 Preparing Files\nOn our computers, for each of the three species we will be working with on the course, we have a directory in ~/Course_Materials for each species where we will do all our analysis. We already included the following in each species directory:",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preparing data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02-preparing_data.html#preparing-files",
+    "href": "materials/02-preparing_data.html#preparing-files",
+    "title": "2  Preparing data",
+    "section": "",
+    "text": "data/ - contains the sequencing files we will be working with.\npreprocessed/ - contains the results for all the analysis we’ll be running during the course (see box below).\nresources/ - where we include other files we will be using such as reference genomes.\ndatabases/ - where we include public databases needed by some tools.\nscripts/ - where we include some scripts that we will use during the course. You will have to edit some of these scripts as part of the exercises.\nsample_info.csv - a table with some metadata for our samples.\n\n\n\n\n\n\n\nWarning\n\n\n\nWe have a lot to fit in this week, and during testing, we found that running all the pipelines and tools on even the genomes we selected from larger datasets was going to take too long. So, what we decided, was to only analyse five samples during the exercises you’ll be doing this week. This will allow you to set up and run the various scripts, see the pipelines and tools running and see the outputs in the time we’ve set aside for each section. The outputs will always be sent to a results directory. However, we’ve provided the results you would have obtained if you’d run the scripts on all of the data in a preprocessed directory. For some of the exercises, you’ll be making use of the outputs in this directory instead of what you create yourselves as this will hopefully give you a more realistic set of results like the ones you may eventually generate when working with larger datasets. We will make it clear in the course materials and exercises when you should be working with the results in the preprocessed directory instead of the results directory.\n\n\n\n2.1.1 Data\nYour analysis starts with FASTQ files (if you need a reminder of what a FASTQ file is, look at the Intro to NGS &gt; FASTQ section of the materials). The Illumina files come as compressed FASTQ files (.fastq.gz format) and there’s two files per sample, corresponding to read 1 and read 2. This is indicated by the file name suffix:\n\n*_1.fastq.gz for read 1\n*_2.fastq.gz for read 2\n\nYou can look at the files you have available in any of the species directories from the command line using:\nls data/reads\n\n\n2.1.2 Metadata\nA critical step in any analysis is to make sure that our samples have all the relevant metadata associated with them. This is important to make sense of our results and produce informative reports at the end. There are many types of information that can be collected from each sample and for effective genomic surveillance, we need at the very minimum three pieces of information:\n\nWhen: date when the sample was collected (not when it was sequenced!).\nWhere: the location where the sample was collected (not where it was sequenced!).\nSource: the source of the the sample e.g. host, environment.\n\nOf course, this is the minimum metadata we need for a useful analysis. The more information you collect about each sample, the more questions you can ask from your data – so always remember to record as much information as possible for each sample.\n\n\n\n\n\n\nWarningDates in Spreadsheet Programs\n\n\n\nNote that programs such as Excel often convert date columns to their own format, and this can cause problems when analysing data later on. The ISO standard for dates is YYYY-MM-DD and this is how we recommend you store your dates. However, by default Excel displays dates as DD/MM/YYYY.\nYou can change how Excel displays dates by highlighting the date column, right-clicking and selecting Format cells, then select “Date” and pick the format that matches YYYY-MM-DD. However, every time you open the CSV file, Excel annoyingly converts it back to its default format!\nTo make sure no date information is lost due to Excel’s behaviour, it’s a good idea to store information about year, month and day in separate columns (stored just as regular numbers).",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preparing data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/02-preparing_data.html#summary",
+    "href": "materials/02-preparing_data.html#summary",
+    "title": "2  Preparing data",
+    "section": "2.2 Summary",
+    "text": "2.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nProper file and folder organization ensures clarity, reproducibility, and efficiency throughout your bioinformatic analysis.\nOrganising files by project, and creating directories for data, scripts and results helps prevent data mix-ups and confusion.\nFASTQ files containing the raw sequencing data, can be quickly investigated using standard command line tools, for example to count how many reads are available.\nMetadata provides context to biological data, including sample information, experimental conditions, and data sources.\nIn pathogen surveillance, metadata helps trace the origin and characteristics of samples, aiding outbreak investigation.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Preparing data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03-intro_ngs.html",
+    "href": "materials/03-intro_ngs.html",
+    "title": "3  Introduction to NGS",
+    "section": "",
+    "text": "3.1 Next Generation Sequencing\nThe sequencing of genomes has become more routine due to the rapid drop in DNA sequencing costs seen since the development of Next Generation Sequencing (NGS) technologies in 2007. One main feature of these technologies is that they are high-throughput, allowing one to more fully characterise the genetic material in a sample of interest.\nThere are three main technologies in use nowadays, often referred to as 2nd and 3rd generation sequencing:\nThe video below from the iBiology team gives a great overview of these technologies.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to NGS</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03-intro_ngs.html#next-generation-sequencing",
+    "href": "materials/03-intro_ngs.html#next-generation-sequencing",
+    "title": "3  Introduction to NGS",
+    "section": "",
+    "text": "Illumina’s sequencing by synthesis (2nd generation)\nOxford Nanopore, shortened ONT (3rd generation)\nPacific Biosciences, shortened PacBio (3rd generation)\n\n\n\n\n3.1.1 Illumina Sequencing\nIllumina’s technology has become a widely popular method, with many applications to study transcriptomes (RNA-seq), epigenomes (ATAC-seq, BS-seq), DNA-protein interactions (ChIP-seq), chromatin conformation (Hi-C/3C-Seq), population and quantitative genetics (variant detection, GWAS), de-novo genome assembly, amongst many others.\nAn overview of the sequencing procedure is shown in the animation video below. Generally, samples are processed to generate so-called sequencing libraries, where the genetic material (DNA or RNA) is processed to generate fragments of DNA with attached oligo adapters necessary for the sequencing procedure (if the starting material is RNA, it can be converted to DNA by a step of reverse transcription). Each of these DNA molecule is then sequenced from both ends, generating pairs of sequences from each molecule, i.e. paired-end sequencing (single-end sequencing, where the molecule is only sequenced from one end is also possible, although much less common nowadays).\nThis technology is a type of short-read sequencing, because we only obtain short sequences from the original DNA molecules. Typical protocols will generate 2x50bp to 2x250bp sequences (the 2x denotes that we sequence from each end of the molecule).\n\n\n\n\nThe main advantage of Illumina sequencing is that it produces very high-quality sequence reads (current protocols generate reads with an error rate of less than &lt;1%) at a low cost. However, the fact that we only get relatively short sequences means that there are limitations when it comes to resolving particular problems such as long sequence repeats (e.g. around centromeres or transposon-rich areas of the genome), distinguishing gene isoforms (in RNA-seq), or resolving haplotypes (combinations of variants in each copy of an individual’s diploid genome).\nIn summary, Illumina:\n\nUtilizes sequencing-by-synthesis chemistry.\nOffers short read lengths.\nKnown for high accuracy with low error rates (&lt;1%).\nWell-suited for applications like DNA resequencing and variant detection.\nScalable and cost-effective for large-scale projects.\nLimited in sequencing long DNA fragments.\nExpensive to set up.\n\n\n\n3.1.2 Nanopore Sequencing\nNanopore sequencing is a type of long-read sequencing technology. The main advantage of this technology is that it can sequence very long DNA molecules (up to megabase-sized), thus overcoming the main shortcoming of short-read sequencing mentioned above. Another big advantage of this technology is its portability, with some of its devices designed to work via USB plugged to a standard laptop. This makes it an ideal technology to use in situations where it is not possible to equip a dedicated sequencing facility/laboratory (for example, when doing field work).\n\n\n\nOverview of Nanopore sequencing showing the highly-portable MinION device. The device contains thousands of nanopores embedded in a membrane where current is applied. As individual DNA molecules pass through these nanopores they cause changes in this current, which is detected by sensors and read by a dedicated computer program. Each DNA base causes different changes in the current, allowing the software to convert this signal into base calls.\n\n\nHowever, optimising this technology presents some challenges, notably in the production of sequencing libraries containing high molecular weight and intact DNA. It’s important to note that nanopore sequencing historically exhibited higher error rates, approximately 5% for older chemistries, compared to Illumina sequencing. However, significant advancements have emerged, enhancing the accuracy of nanopore sequencing technology, now achieving accuracy rates exceeding 99%.\nIn summary, ONT:\n\nOperates on the principle of nanopore technology.\nProvides long read lengths, ranging from thousands to tens of thousands of base pairs.\nIdeal for applications requiring long-range information, such as de novo genome assembly and structural variant analysis.\nPortable, enabling fieldwork and real-time sequencing.\nExhibits higher error rates (around 5%), with improvements in recent versions.\nCosts can be higher per base, compared to Illumina for certain projects.\n\n\n\n\n\n\n\nNoteWhich technology to choose?\n\n\n\nBoth of these platforms have been widely popular for bacterial sequencing. They can both generate data with high-enough quality for the assembly and analysis for most of the pathogen genomic surveillance. Mostly, which one you use will depend on what sequencing facilities you have access to.\nWhile Illumina provides the cheapest option per sample of the two, it has a higher setup cost, requiring access to the expensive sequencing machines. On the other hand, Nanopore is a very flexible platform, especially its portable MinION devices. They require less up-front cost allowing getting started with sequencing very quickly in a standard molecular biology lab.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to NGS</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03-intro_ngs.html#sec-file-formats",
+    "href": "materials/03-intro_ngs.html#sec-file-formats",
+    "title": "3  Introduction to NGS",
+    "section": "3.2 Bioinformatics file formats",
+    "text": "3.2 Bioinformatics file formats\nBioinformatics relies on various standard file formats for storing diverse types of data. In this section, we’ll discuss some of the key ones we’ll encounter, although there are numerous others. You can refer to the “Common file formats” appendix for a more comprehensive list.\n\n3.2.1 FAST5\nFAST5 is a proprietary format developed by ONT and serves as the standard format generated by its sequencing devices. It is based on the hierarchical data format HDF5, designed for storing extensive and intricate data. Unlike text-based formats like FASTA and FASTQ, FAST5 files are binary, necessitating specialized software for opening and reading.\nWithin these files, you’ll find a Raw/ field containing the original raw current signal measurements. Additionally, tools like basecallers can add Analyses/ fields, converting signals into standard FASTQ data (e.g., Guppy basecaller).\nTypically, manual inspection of these files is unnecessary, as specialized software is used for processing them. For more in-depth information about this format, you can refer to this resource.\n\n\n3.2.2 FASTQ\nFASTQ files are used to store nucleotide sequences along with a quality score for each nucleotide of the sequence. These files are the typical format obtained from NGS sequencing platforms such as Illumina and Nanopore (after basecalling). Common file extensions used for this format include .fastq and .fq.\nThe file format is as follows:\n@SEQ_ID                   &lt;-- SEQUENCE NAME\nAGCGTGTACTGTGCATGTCGATG   &lt;-- SEQUENCE\n+                         &lt;-- SEPARATOR\n%%).1***-+*''))**55CCFF   &lt;-- QUALITY SCORES\nIn FASTQ files each sequence is always represented across 4 lines. The quality scores are encoded in a compact form, using a single character. They represent a score that can vary between 0 and 40 (see Illumina’s Quality Score Encoding). The reason single characters are used to encode the quality scores is that it saves space when storing these large files. Software that work on FASTQ files automatically convert these characters into their score, so we don’t have to worry about doing this conversion ourselves.\nThe quality value in common use is called a Phred score and it represents the probability that the base is an error. For example, a base with quality 20 has a probability \\(10^{-2} = 0.01 = 1\\%\\) of being an error. A base with quality 30 has \\(10^{-3} = 0.001 = 0.1\\%\\) chance of being an error. Typically, a Phred score threshold of &gt;20 or &gt;30 is used when applying quality filters to sequencing reads.\nBecause FASTQ files tend to be quite large, they are often compressed to save space. The most common compression format is called gzip and uses the extension .gz. To look at a gzip file, we can use the command zcat, which decompresses the file and prints the output as text.\nFor example, we can use the following command to count the number of lines in a compressed FASTQ file:\nzcat sequences.fq.gz | wc -l\nIf we want to know how many sequences there are in the file, we can divide the result by 4 (since each sequence is always represented across four lines).\n\n\n3.2.3 FASTA\nFASTA files are used to store nucleotide or amino acid sequences. Common file extensions used for this format include .fasta, .fa, .fas and .fna.\nThe general structure of a FASTA file is illustrated below:\n&gt;sample01                 &lt;-- NAME OF THE SEQUENCE\nAGCGTGTACTGTGCATGTCGATG   &lt;-- SEQUENCE ITSELF\nEach sequence is represented by a name, which always starts with the character &gt;, followed by the actual sequence.\nA FASTA file can contain several sequences, for example:\n&gt;sample01\nAGCGTGTACTGTGCATGTCGATG\n&gt;sample02\nAGCGTGTACTGTGCATGTCGATG\nEach sequence can sometimes span multiple lines, and separate sequences can always be identified by the &gt; character. For example, this contains the same sequences as above:\n&gt;sample01      &lt;-- FIRST SEQUENCE STARTS HERE\nAGCGTGTACTGT\nGCATGTCGATG\n&gt;sample02      &lt;-- SECOND SEQUENCE STARTS HERE\nAGCGTGTACTGT\nGCATGTCGATG\nTo count how many sequences there are in a FASTA file, we can use the following command:\ngrep \"&gt;\" sequences.fa | wc -l\nIn two steps:\n\nfind the lines containing the character “&gt;”, and then\ncount the number of lines of the result.\n\nFASTA files are commonly used to store genome sequences, after they have been assembled. We will see FASTA files several times throughout these materials, so it’s important to be familiar with them.\n\n\n3.2.4 GFF3\nThe GFF3 (Generic Feature Format version 3) is a standardized file format used in bioinformatics to describe genomic features and annotations. It primarily serves as a structured and human-readable way to represent information about genes, transcripts, and other biological elements within a genome. Common file extensions used for this format include .gff and .gff3.\nKey characteristics of the GFF3 format include:\n\nTab-delimited columns: GFF3 files consist of tab-delimited columns, making them easy to read and parse.\nHierarchical structure: the format supports a hierarchical structure, allowing the description of complex relationships between features. For instance, it can represent genes containing multiple transcripts, exons, and other elements.\nNine standard columns: this includes information such as the sequence identifier (e.g. chromosome), feature type (e.g. gene, exon), start and end coordinates, strand and several attributes.\nAttributes field: the ninth column, known as the “attributes” field, contains additional information in a key-value format. This field is often used to store details like gene names, IDs, and functional annotations.\nComments: GFF3 files can include comment lines starting with a “#” symbol to provide context or documentation.\n\nGFF3 is widely supported by various bioinformatics tools and databases, making it a versatile format for storing and sharing genomic annotations.\n\n\n3.2.5 CSV/TSV\nComma-separated values (CSV) and tab-separated values (TSV) files are text-based formats commonly used to store tabular data. While strictly not specific to bioinformatics, they are commonly used as the output of bioinformatic software. CSV files usually have .csv extension, while TSV files often have .tsv or the more generic .txt extension.\nIn both cases, the data is organized into rows and columns. Rows are represented across different lines of the file, while the columns are separated using a delimiting character: a command , in the case of CSV files and a tab space (tab ↹) for TSV files.\nFor example, for this table:\n\n\n\nsample\ndate\nstrain\n\n\n\n\nVCH001\n2023-08-01\nO1 El Tor\n\n\nVCH002\n2023-08-02\nO1 Classical\n\n\nVCH003\n2023-08-03\nO139\n\n\nVCH004\n2023-08-04\nNon-O1 Non-O139\n\n\n\nThis would be its representation as a CSV file:\nsample,date,strain\nVCH001,2023-08-01,O1 El Tor\nVCH002,2023-08-02,O1 Classical\nVCH003,2023-08-03,O139\nVCH004,2023-08-04,Non-O1 Non-O139\nAnd this is its representation as a TSV file (the space between columns is a tab ↹):\nsample    date        strain\nVCH001    2023-08-01  O1 El Tor\nVCH002    2023-08-02  O1 Classical\nVCH003    2023-08-03  O139\nVCH004    2023-08-04  Non-O1 Non-O139\nCSV and TSV files are human-readable and can be opened and edited using basic text editors or spreadsheet software like Microsoft Excel.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to NGS</span>"
+    ]
+  },
+  {
+    "objectID": "materials/03-intro_ngs.html#summary",
+    "href": "materials/03-intro_ngs.html#summary",
+    "title": "3  Introduction to NGS",
+    "section": "3.3 Summary",
+    "text": "3.3 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nHigh-throughput sequencing technologies, often called next-generation sequencing (NGS), enable rapid and cost-effective genome sequencing.\nProminent NGS platforms include Illumina, Oxford Nanopore Technologies (ONT) and Pacific Biosciences (PacBio).\nEach platform employs distinct mechanisms for DNA sequencing, leading to variations in read length, error rates, and applications.\nIllumina sequencing:\n\nUses sequencing-by-synthesis chemistry, produces short read lenghts and has high accuracy with low error rates (&lt;1%).\nWhile it is scalable and cost-effective for large-scale projects, it is expensive to set up and limited in sequencing long DNA fragments.\n\nNanopore sequencing:\n\nUses nanopore technology, provides long read lengths, making it ideal for applications such as de novo genome assembly.\nAlthough the costs can be higher per base, it is cheaper to set up.\nExhibits higher error rates (around 5%), but with significant improvements in recent versions (1%).\n\nCommon file formats in bioinformatics include FASTQ, FASTA and GFF. These are all text-based formats.\nFASTQ format (.fastq or .fq):\n\nDesigned to store sequences along with quality scores.\nContains a sequence identifier, sequence data, a separator line and quality scores.\nWidely used for storing sequence reads generated by NGS platforms.\n\nFASTA format (.fasta, .fa, .fas, .fna):\n\nIs used for storing biological sequences, including DNA, RNA, and protein.\nIt Comprises a sequence identifier (often preceded by “&gt;”) and the sequence data.\nCommonly used for sequence storage and exchange of genome sequences.\n\nGFF format (.gff or .gff3):\n\nA structured, tab-delimited format for describing genomic features and annotations.\nConsists of nine standard columns, including sequence identifier, feature type, start and end coordinates, strand information, and attributes.\nFacilitates the representation of genes, transcripts, and other genomic elements, supporting hierarchical structures and metadata.\nCommonly used for storing and sharing genomic annotation data in bioinformatics.\n\nCSV (.csv) and TSV (.tsv):\n\nPlain text formats to store tables.\nThe columns in the CSV format are delimited by comma, whereas in the TSV format by a tab.\nThese files can be opened in standard spreadsheet software such as Excel.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Introduction to NGS</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04-nextflow.html",
+    "href": "materials/04-nextflow.html",
+    "title": "4  Workflow management",
+    "section": "",
+    "text": "4.1 Workflows\nAnalysing data involves a sequence of tasks, including gathering, cleaning, and processing data. These sequence of tasks are called a workflow or a pipeline. These workflows typically require executing multiple software packages, sometimes running on different computing environments, such as a desktop or a compute cluster. Traditionally these workflows have been joined together in scripts using general purpose programming languages such as Bash or Python.\nHowever, as workflows become larger and more complex, the management of the programming logic and software becomes difficult.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Workflow management</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04-nextflow.html#workflows",
+    "href": "materials/04-nextflow.html#workflows",
+    "title": "4  Workflow management",
+    "section": "",
+    "text": "Example bioinformatics variant calling workflow/pipeline diagram from nf-core (bactmap).",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Workflow management</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04-nextflow.html#workflow-management-systems",
+    "href": "materials/04-nextflow.html#workflow-management-systems",
+    "title": "4  Workflow management",
+    "section": "4.2 Workflow management systems",
+    "text": "4.2 Workflow management systems\nWorkflow Management Systems (WfMS), such as Snakemake, Galaxy, and Nextflow have been developed specifically to manage computational data-analysis workflows in fields such as Bioinformatics, Imaging, Physics, and Chemistry.\nWfMS contain multiple features that simplify the development, monitoring, execution and sharing of pipelines.\nKey features include;\n\nRun time management: Management of program execution on the operating system and splitting tasks and data to run at the same time in a process called parallelisation.\nSoftware management: Use of technology like containers, such as Docker or Singularity, that packages up code and all its dependencies so the application runs reliably from one computing environment to another.\nPortability & Interoperability: Workflows written on one system can be run on another computing infrastructure e.g., local computer, compute cluster, or cloud infrastructure.\nReproducibility: The use of software management systems and a pipeline specification means that the workflow will produce the same results when re-run, including on different computing platforms.\nReentrancy: Continuous checkpoints allow workflows to resume from the last successfully executed steps.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Workflow management</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04-nextflow.html#nextflow-basic-concepts",
+    "href": "materials/04-nextflow.html#nextflow-basic-concepts",
+    "title": "4  Workflow management",
+    "section": "4.3 Nextflow basic concepts",
+    "text": "4.3 Nextflow basic concepts\nNextflow is a workflow management system that combines a runtime environment, software that is designed to run other software, and a programming domain specific language (DSL) that eases the writing of computational pipelines.\nNextflow is built around the idea that Linux is the lingua franca of data science. Nextflow follows Linux’s “small pieces loosely joined” philosophy: in which many simple but powerful command-line and scripting tools, when chained together, facilitate more complex data manipulations.\nNextflow extends this approach, adding the ability to define complex program interactions and an accessible (high-level) parallel computational environment based on the dataflow programming model, whereby processes are connected via their outputs and inputs to other processes, and run as soon as they receive an input. The diagram below illustrates the differences between a dataflow model and a simple linear program .\n\n\n\nA simple program (a) and its dataflow equivalent (b). Adapted from Johnston, Hanna and Millar 2004.\n\n\nIn a simple program (a), these statements would be executed sequentially. Thus, the program would execute in three units of time. In the dataflow programming model (b), this program takes only two units of time. This is because the read quantitation and QC steps have no dependencies on each other and therefore can execute simultaneously in parallel.\n\n4.3.1 Nextflow core features\n\nFast prototyping: A simple syntax for writing pipelines that enables you to reuse existing scripts and tools for fast prototyping.\nReproducibility: Nextflow supports several container technologies, such as Docker and Singularity, as well as the package manager Conda. This, along with the integration of the GitHub code sharing platform, allows you to write self-contained pipelines, manage versions and to reproduce any former configuration.\nPortability: Nextflow’s syntax separates the functional logic (the steps of the workflow) from the execution settings (how the workflow is executed). This allows the pipeline to be run on multiple platforms, e.g. local compute vs. a university compute cluster or a cloud service like AWS, without changing the steps of the workflow.\nSimple parallelism: Nextflow is based on the dataflow programming model which greatly simplifies the splitting of tasks that can be run at the same time (parallelisation).\nContinuous checkpoints: All the intermediate results produced during the pipeline execution are automatically tracked. This allows you to resume its execution from the last successfully executed step, no matter what the reason was for it stopping.\n\n\n\n4.3.2 Scripting language\nNextflow scripts are written using a language intended to simplify the writing of workflows. Languages written for a specific field are called Domain Specific Languages (DSL), e.g., SQL is used to work with databases, and AWK is designed for text processing.\nIn practical terms the Nextflow scripting language is an extension of the Groovy programming language, which in turn is a super-set of the Java programming language. Groovy simplifies the writing of code and is more approachable than Java. Groovy semantics (syntax, control structures, etc) are documented here.\nThe approach of having a simple DSL built on top of a more powerful general purpose programming language makes Nextflow very flexible. The Nextflow syntax can handle most workflow use cases with ease, and then Groovy can be used to handle corner cases which may be difficult to implement using the DSL.\n\n\n4.3.3 DSL2 syntax\nNextflow (version &gt; 20.07.1) provides a revised syntax to the original DSL, known as DSL2. The DSL2 syntax introduces several improvements such as modularity (separating components to provide flexibility and enable reuse), and improved data flow manipulation. This further simplifies the writing of complex data analysis pipelines, and enhances workflow readability, and reusability.\n\n\n4.3.4 Processes, channels, and workflows\nNextflow workflows have three main parts; processes, channels, and workflows. Processes describe a task to be run. A process script can be written in any scripting language that can be executed by the Linux platform (Bash, Perl, Ruby, Python, etc.). Processes spawn a task for each complete input set. Each task is executed independently, and cannot interact with another task. The only way data can be passed between process tasks is via asynchronous queues, called channels.\nProcesses define inputs and outputs for a task. Channels are then used to manipulate the flow of data from one process to the next. The interaction between processes, and ultimately the pipeline execution flow itself, is then explicitly defined in a workflow section.\nIn the following example we have a channel containing three elements, e.g., 3 data files. We have a process that takes the channel as input. Since the channel has three elements, three independent instances (tasks) of that process are run in parallel. Each task generates an output, which is passed to another channel and used as input for the next process.\n\n\n\nProcesses and channels.\n\n\n\n\n4.3.5 Workflow execution\nWhile a process defines what command or script has to be executed, the executor determines how that script is actually run in the target system.\nIf not otherwise specified, processes are executed on the local computer. The local executor is very useful for pipeline development, testing, and small scale workflows, but for large scale computational pipelines, a High Performance Cluster (HPC) or Cloud platform is often required.\n\n\n\nProcesses and channels.\n\n\nNextflow provides a separation between the pipeline’s functional logic and the underlying execution platform. This makes it possible to write a pipeline once, and then run it on your computer, compute cluster, or the cloud, without modifying the workflow, by defining the target execution platform in a configuration file.\nNextflow provides out-of-the-box support for major batch schedulers and cloud platforms such as Sun Grid Engine, SLURM job scheduler, AWS Batch service and Kubernetes. A full list can be found here.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Workflow management</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04-nextflow.html#snakemake",
+    "href": "materials/04-nextflow.html#snakemake",
+    "title": "4  Workflow management",
+    "section": "4.4 Snakemake",
+    "text": "4.4 Snakemake\nIn this section we’ve focused on Nextflow but many people in the bioinformatics community use Snakemake. Similar to Nextflow, the Snakemake workflow management system is a tool for creating reproducible and scalable data analyses and it supports all the same features mentioned above. Perhaps the most noticeable difference for users is that Snakemake is based on the Python programming language. This makes it more approachable for those already familiar with this language.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Workflow management</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04-nextflow.html#summary",
+    "href": "materials/04-nextflow.html#summary",
+    "title": "4  Workflow management",
+    "section": "4.5 Summary",
+    "text": "4.5 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nWorkflow management software is designed to simplify the process of orchestrating complex computational pipelines that involve various tasks, inputs and outputs, and parallel processing.\nUsing workfow managent software to manage complex pipelines has several advantages: reproducibility, parallel task execution, automatic software management, scalability (from a local computer to cloud and HPC cluster servers) and “checkpoint and resume” ability.\nNextflow and Snakemake are two of the most popular workflow managers used in bioinformatics, with an active community of developers and several useful features:\n\nFlexible syntax that can be adapted to any task.\nThe ability to reuse and share modules written by the community.\nIntegration with code sharing platforms such as GitHub and GitLab.\nUse of containerisation solutions (Docker and Singularity) and software package managers such as Conda.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Workflow management</span>"
+    ]
+  },
+  {
+    "objectID": "materials/04-nextflow.html#credit",
+    "href": "materials/04-nextflow.html#credit",
+    "title": "4  Workflow management",
+    "section": "4.6 Credit",
+    "text": "4.6 Credit\nInformation on this page has been adapted and modified from the following source(s):\n\nGraeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia. Introduction to Workflows with Nextflow and nf-core. https://github.com/carpentries-incubator/workflows-nextflow 2021.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Workflow management</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html",
+    "href": "materials/05-nf_core.html",
+    "title": "5  The nf-core project",
+    "section": "",
+    "text": "5.1 What is nf-core?\nnf-core is a community-led project to develop a set of best-practice pipelines built using Nextflow workflow management system. Pipelines are governed by a set of guidelines, enforced by community code reviews and automatic code testing.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#what-is-nf-core",
+    "href": "materials/05-nf_core.html#what-is-nf-core",
+    "title": "5  The nf-core project",
+    "section": "",
+    "text": "nf-core",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#what-are-nf-core-pipelines",
+    "href": "materials/05-nf_core.html#what-are-nf-core-pipelines",
+    "title": "5  The nf-core project",
+    "section": "5.2 What are nf-core pipelines?",
+    "text": "5.2 What are nf-core pipelines?\nnf-core pipelines are an organised collection of Nextflow scripts, other non-nextflow scripts (written in any language), configuration files, software specifications, and documentation hosted on GitHub. There is generally a single pipeline for a given data and analysis type, e.g. there is a single pipeline for bulk RNA-Seq. All nf-core pipelines are distributed under the open MIT licence.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#running-nf-core-pipelines",
+    "href": "materials/05-nf_core.html#running-nf-core-pipelines",
+    "title": "5  The nf-core project",
+    "section": "5.3 Running nf-core pipelines",
+    "text": "5.3 Running nf-core pipelines\n\n5.3.1 Software requirements for nf-core pipelines\nnf-core pipeline software dependencies are specified using either Docker, Singularity or Conda. It is Nextflow that handles the downloading of containers and creation of conda environments. In theory it is possible to run the pipelines with software installed by other methods (e.g. environment modules, or manual installation), but this is not recommended.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#usage-instructions-and-documentation",
+    "href": "materials/05-nf_core.html#usage-instructions-and-documentation",
+    "title": "5  The nf-core project",
+    "section": "5.4 Usage instructions and documentation",
+    "text": "5.4 Usage instructions and documentation\nYou can find general documentation and instructions for Nextflow and nf-core on the nf-core website . Pipeline-specific documentation is bundled with each pipeline in the /docs folder. This can be read either locally, on GitHub, or on the nf-core website.\nEach pipeline has its own webpage e.g. nf-co.re/rnaseq.\nIn addition to this documentation, each pipeline comes with basic command line reference. This can be seen by running the pipeline with the parameter --help . It is also recommended to explicitly specify the version of the pipeline you want to run, to ensure reproducibility if you run it again in the future. This can be done with the -r option.\nFor example, the following command prints the help documentation for version 3.4 of the nf-core/rnaseq pipeline:\nnextflow run -r 3.4 nf-core/rnaseq --help\nN E X T F L O W  ~  version 20.10.0\nLaunching `nf-core/rnaseq` [silly_miescher] - revision: 964425e3fd [3.4]\n------------------------------------------------------\n                                        ,--./,-.\n        ___     __   __   __   ___     /,-._.--~'\n  |\\ | |__  __ /  ` /  \\ |__) |__         }  {\n  | \\| |       \\__, \\__/ |  \\ |___     \\`-._,-`-,\n                                        `._,._,'\n  nf-core/rnaseq v3.0\n------------------------------------------------------\n\nTypical pipeline command:\n\n    nextflow run nf-core/rnaseq --input samplesheet.csv --genome GRCh37 -profile docker\n\nInput/output options\n    --input                             [string]  Path to comma-separated file containing information about the samples in the experiment.\n    --outdir                            [string]  Path to the output directory where the results will be saved.\n    --public_data_ids                   [string]  File containing SRA/ENA/GEO identifiers one per line in order to download their associated FastQ files.\n    --email                             [string]  Email address for completion summary.\n    --multiqc_title                     [string]  MultiQC report title. Printed as page header, used for filename if not otherwise specified.\n    --skip_sra_fastq_download           [boolean] Only download metadata for public data database ids and don't download the FastQ files.\n    --save_merged_fastq                 [boolean] Save FastQ files after merging re-sequenced libraries in the results directory.\n..truncated..\n\n5.4.1 Config files\nnf-core pipelines make use of Nextflow’s configuration files to specify how the pipelines runs, define custom parameters and what software management system to use e.g. docker, singularity or conda.\nNextflow can load pipeline configurations from multiple locations. nf-core pipelines load configuration in the following order:\n\n\n\nNextflow config loading order\n\n\n\nPipeline: Default ‘base’ config\n\nAlways loaded. Contains pipeline-specific parameters and “sensible defaults” for things like computational requirements.\nDoes not specify any method for software packaging. If nothing else is specified, Nextflow will expect all software to be available on the command line.\n\nCore config profiles\n\nAll nf-core pipelines come with some generic config profiles. The most commonly used ones are for software packaging: docker, singularity and conda.\nOther core profiles are ‘debug’ and two ‘test’ profiles. The two test profiles include: a small version for quick testing, which pulls data from a public repository at nf-core/test-datasets; and a full test profile which provides the path to full-sized data from public repositories.\n\nServer profiles\n\nAt run time, nf-core pipelines fetch configuration profiles from the configs remote repository. The profiles here are specific to clusters at different institutions.\nBecause this is loaded at run time, anyone can add a profile here for their system and it will be immediately available for all nf-core pipelines.\n\nLocal config files given to Nextflow with the -c flag\nnextflow run nf-core/rnaseq -r 3.4 -c mylocal.config\nCommand line configuration: pipeline parameters can be passed on the command line using the --&lt;parameter&gt; syntax. We will see several examples of this use throughout the course.\n\n\n\n5.4.2 Config profiles\nnf-core makes use of Nextflow configuration profiles to make it easy to apply a group of options on the command line.\nConfiguration files can contain the definition of one or more profiles. A profile is a set of configuration attributes that can be activated/chosen when launching a pipeline execution by using the -profile command line option. Common profiles are conda, singularity and docker that specify which software manager to use.\nMultiple profiles are comma-separated. When there are differing configuration settings provided by different profiles, the right-most profile takes priority.\nFor example, the following command runs the test profile (i.e. run the test pipeline) and use Singularity containers as a way to manage the software required by the pipeline:\nnextflow run nf-core/rnaseq -r 3.4 -profile test,singularity\nNote The order in which config profiles are specified matters. Their priority increases from left to right.\n\n\n\n\n\n\nNoteMultiple Nextflow configuration locations\n\n\n\nBe clever with multiple Nextflow configuration locations. For example, use -profile for your cluster configuration, the file $HOME/.nextflow/config for your personal config such as params.email and a working directory nextflow.config file for reproducible run-specific configuration.\n\n\n\n\n5.4.3 Running pipelines with test data\nThe nf-core config profile test is a special profile, which defines a minimal data set and configuration, that runs quickly and tests the workflow from beginning to end. Since the data is minimal, the output is often nonsense. Real world example output are instead linked on the nf-core pipeline web page, where the workflow has been run with a full size data set:\n$ nextflow run nf-core/&lt;pipeline_name&gt; -r \"&lt;pipeline_version&gt;\" -profile test\n\n\n\n\n\n\nTipSoftware configuration profile\n\n\n\nNote that you will typically still need to combine this with a software configuration profile for your system - e.g. -profile test,conda. Running with the test profile is a great way to confirm that you have Nextflow configured properly for your system before attempting to run with real data",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#troubleshooting",
+    "href": "materials/05-nf_core.html#troubleshooting",
+    "title": "5  The nf-core project",
+    "section": "5.5 Troubleshooting",
+    "text": "5.5 Troubleshooting\nIf you run into issues running your pipeline you can you the nf-core website to troubleshoot common mistakes and issues https://nf-co.re/usage/troubleshooting .\n\n5.5.1 Extra resources and getting help\nIf you still have an issue with running the pipeline then feel free to contact the nf-core community via the Slack channel . The nf-core Slack workspace has channels dedicated for each pipeline, as well as specific topics (eg. #help, #pipelines, #tools, #configs and much more). To join this workspace you will need an invite, which you can get at https://nf-co.re/join/slack.\nYou can also get help by opening an issue in the respective pipeline repository on GitHub asking for help.\nIf you have problems that are directly related to Nextflow and not our pipelines or the nf-core framework tools then check out the Nextflow gitter channel or the google group.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#referencing-a-pipeline",
+    "href": "materials/05-nf_core.html#referencing-a-pipeline",
+    "title": "5  The nf-core project",
+    "section": "5.6 Referencing a Pipeline",
+    "text": "5.6 Referencing a Pipeline\n\n5.6.1 Publications\nIf you use an nf-core pipeline in your work you should cite the main publication for the main nf-core paper, describing the community and framework, as follows:\n\nThe nf-core framework for community-curated bioinformatics pipelines. Philip Ewels, Alexander Peltzer, Sven Fillinger, Harshil Patel, Johannes Alneberg, Andreas Wilm, Maxime Ulysse Garcia, Paolo Di Tommaso & Sven Nahnsen. Nat Biotechnol. 2020 Feb 13. doi: 10.1038/s41587-020-0439-x. ReadCube: Full Access Link\n\nMany of the pipelines have a publication listed on the nf-core website that can be found here.\n\n\n5.6.2 DOIs\nIn addition, each release of an nf-core pipeline has a digital object identifiers (DOIs) for easy referencing in literature The DOIs are generated by Zenodo from the pipeline’s github repository.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#summary",
+    "href": "materials/05-nf_core.html#summary",
+    "title": "5  The nf-core project",
+    "section": "5.7 Summary",
+    "text": "5.7 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nnf-core is a community-led project to develop and curate a set of high-quality bioinformatic pipelines.\nAll pipelines are listed on the nf-co.re website.\nEach pipeline contains both general usage documentation, as well as detailed help for its input parameters and the output files generated by the pipeline.\nSeveral aspects of the pipelines can be configured, using configuration files.\nDefault profiles can be used to load a set of default configurations. Common profiles in nf-core pipelines include:\n\ntest to run a quick test, useful to see if the software is correctly setup on the computer/server being used.\ndocker and singularity to indicate we want to use either Docker or Singularity to automatically manage the software installation during the pipeline run.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/05-nf_core.html#credit",
+    "href": "materials/05-nf_core.html#credit",
+    "title": "5  The nf-core project",
+    "section": "5.8 Credit",
+    "text": "5.8 Credit\nInformation on this page has been adapted and modified from the following source(s):\n\nGraeme R. Grimes, Evan Floden, Paolo Di Tommaso, Phil Ewels and Maxime Garcia. Introduction to Workflows with Nextflow and nf-core. https://github.com/carpentries-incubator/workflows-nextflow 2021.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>The nf-core project</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06-downloading.html",
+    "href": "materials/06-downloading.html",
+    "title": "6  Downloading sequence data",
+    "section": "",
+    "text": "6.1 Pipeline Overview\nfetchngs is a bioinformatics analysis pipeline written in Nextflow to automatically download and process raw FASTQ files from public databases. Identifiers can be provided in a file and any type of accession ID found in the SRA, ENA, DDBJ and GEO databases are supported. If run accessions (SRR/ERR/DRR) are provided, these will be resolved back to the sample accessions (SRX/ERX/DRX) to allow multiple runs for the same sample to be merged. As well as the FASTQ files, fetchngs will also produce a samplesheet.csv file containing the sample metadata obtained from the ENA. This file can be used as input for other nf-core and Nextflow pipelines like the ones we’ll be using this week.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Downloading sequence data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06-downloading.html#pipeline-overview",
+    "href": "materials/06-downloading.html#pipeline-overview",
+    "title": "6  Downloading sequence data",
+    "section": "",
+    "text": "The fetchngs pipeline",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Downloading sequence data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06-downloading.html#prepare-a-samples-file",
+    "href": "materials/06-downloading.html#prepare-a-samples-file",
+    "title": "6  Downloading sequence data",
+    "section": "6.2 Prepare a samples file",
+    "text": "6.2 Prepare a samples file\nfetchngs requires a samples file with the accessions you would like to download. The file requires the suffix .csv but does not need to be in CSV format. Each line needs to represent a database id:\nERR9907668\nERR9907669\nERR9907670\nERR9907671\nERR9907672\n\n\n\n\n\n\nExerciseExercise 1 - Preparing a samples file\n\n\n\n\n\n\nYour first task is to create a samples.csv file to be used as input for fetchngs. Use the following accessions:\nERR9907668\nERR9907669\nERR9907670\nERR9907671\nERR9907672\nMake sure you save the file in the ~/Course_Materials/M_tuberculosis directory.\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nWe opened a text editor (e.g. nano. vim), copied and pasted the accessions and saved the file as samples.csv in the ~/Course_Materials/M_tuberculosis directory.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Downloading sequence data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06-downloading.html#running-fetchngs",
+    "href": "materials/06-downloading.html#running-fetchngs",
+    "title": "6  Downloading sequence data",
+    "section": "6.3 Running fetchngs",
+    "text": "6.3 Running fetchngs\nNow that we have the samples.csv file, we can run the fetchngs pipeline. First, let’s activate the nextflow software environment:\nmamba activate nextflow\nThere are many options that can be used to customise the pipeline but a typical command is shown below:\nnextflow run nf-core/fetchngs \\\n  -r \"?var:version.fetchngs\" \\\n  -profile singularity \\\n  --input SAMPLES \\\n  --outdir results/fetchngs \\\n  --nf_core_pipeline viralrecon \\\n  --download_method sratools \\\n  -resume\nThe options we used are:\n\n-profile singularity - indicates we want to use the Singularity program to manage all the software required by the pipeline (another option is to use docker). See Data & Setup for details about their installation.\n--input - the samples file with the accessions to be downloaded, as explained above.\n--nf_core_pipeline - Name of supported nf-core pipeline e.g. ‘viralrecon’. A samplesheet for direct use with the pipeline will be created with the appropriate columns.\n--download_method - forces the pipeline to use sratools instead of a direct FTP download.\n-resume - all Nextflow pipelines can be resumed. It isn’t necessary for the force run of the pipeline but it’s good practice to include it in the command.\n\n\n\n\n\n\n\nExerciseExercise 2 - Running fetchngs\n\n\n\n\n\n\nYour next task is to download sequence data with the fetchngs. In the folder scripts (in the M_tuberculosis analysis directory) you will find a script named 01-run_fetchngs.sh. This script contains the code to run fetchngs.\n\nEdit this script, adjusting it to fit your input file.\nRun the script using bash scripts/01-run_fetchngs.sh.\nIf the script is running successfully it should start printing the progress of each job in the fetchngs pipeline.\n\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\n\nThe fixed script is:\n\n#!/bin/bash\n\nnextflow run nf-core/fetchngs \\\n  -r \"?var:version.fetchngs\" \\\n  -profile singularity \\\n  --input samples.csv \\\n  --outdir results/fetchngs \\\n  --nf_core_pipeline viralrecon \\\n  --download_method sratools \\\n  -resume\n\nWe ran the script as instructed using:\n\nbash scripts/01-run_fetchngs.sh\n\nWhile it was running it printed a message on the screen:\n\nexecutor &gt;  local (20)\n[5d/682f49] process &gt; NFCORE_FETCHNGS:SRA:SRA_IDS_TO_RUNINFO (ERR9907668)                                                          [100%] 5 of 5 ✔\n[9d/ab8a7b] process &gt; NFCORE_FETCHNGS:SRA:SRA_RUNINFO_TO_FTP (5)                                                                   [100%] 5 of 5 ✔\n[f9/39e27c] process &gt; NFCORE_FETCHNGS:SRA:SRA_FASTQ_FTP (ERX9450498_ERR9907670)                                                    [ 80%] 4 of 5\n[82/c5f847] process &gt; NFCORE_FETCHNGS:SRA:FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS:CUSTOM_SRATOOLSNCBISETTINGS (ncbi-settings) [100%] 1 of 1 ✔\n[-        ] process &gt; NFCORE_FETCHNGS:SRA:FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS:SRATOOLS_PREFETCH                           -\n[-        ] process &gt; NFCORE_FETCHNGS:SRA:FASTQ_DOWNLOAD_PREFETCH_FASTERQDUMP_SRATOOLS:SRATOOLS_FASTERQDUMP                        -\n[2e/4fd490] process &gt; NFCORE_FETCHNGS:SRA:SRA_TO_SAMPLESHEET (ERX9450498_ERR9907670)                                               [100%] 4 of 4\n[-        ] process &gt; NFCORE_FETCHNGS:SRA:SRA_MERGE_SAMPLESHEET                                                                    -\n[-        ] process &gt; NFCORE_FETCHNGS:SRA:MULTIQC_MAPPINGS_CONFIG                                                                  -",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Downloading sequence data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06-downloading.html#fetchngs-results",
+    "href": "materials/06-downloading.html#fetchngs-results",
+    "title": "6  Downloading sequence data",
+    "section": "6.4 fetchngs results",
+    "text": "6.4 fetchngs results\nOnce fetchngs has run, we can look at the various directories it created in results/fetchngs:\n\n\n\n\n\n\n\nDirectory\nDescription\n\n\n\n\ncustom\nContains settings to help the pipeline run\n\n\nfastq\nPaired-end/single-end reads downloaded from the SRA/ENA/DDBJ/GEO for each accession in the samples.csv file\n\n\nmetadata\nContains the re-formatted ENA metadata for each sample\n\n\nsamplesheet\nContains the samplesheet with collated metadata and paths to downloaded FASTQ files\n\n\npipeline_info\nContains information about the pipeline run\n\n\n\n\n\n\n\n\n\nWarningThe Nextflow work directory\n\n\n\nEach step of the pipeline produces one or more files that are not saved to the results directory but are kept in the work directory. This means that if, for whatever reason, the pipeline doesn’t finish successfully you can resume it. However, once the pipeline has completed successfully, you no longer need this directory (it can take up a lot of space) so you can delete it:\nrm -rf work",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Downloading sequence data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/06-downloading.html#summary",
+    "href": "materials/06-downloading.html#summary",
+    "title": "6  Downloading sequence data",
+    "section": "6.5 Summary",
+    "text": "6.5 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nThe nf-core fetchngs pipeline can be used to quickly download sequence data from public databases such as the ENA and GEO.\nThe pipeline also produces a samplesheet.csv file that can be used as input for other nf-core and Nextflow pipelines.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Introduction",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Downloading sequence data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07-intro_qc.html",
+    "href": "materials/07-intro_qc.html",
+    "title": "7  Introduction to QC",
+    "section": "",
+    "text": "7.1 Introduction\nBefore we look at our genomic data, lets take time to explore what to look out for when performing Quality Control (QC) checks on our sequence data. For this course, we will largely focus on next generation sequences obtained from Illumina sequencers. As you may already know from Introduction to NGS, the main output files expected from our Illumina sequencer are FASTQ files.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Sequence quality control",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to QC</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07-intro_qc.html#qc-assessment-of-ngs-data",
+    "href": "materials/07-intro_qc.html#qc-assessment-of-ngs-data",
+    "title": "7  Introduction to QC",
+    "section": "7.2 QC assessment of NGS data",
+    "text": "7.2 QC assessment of NGS data\nQC is an important part of any analysis and, in this section, we’re going to look at some of the metrics and graphs that can be used to assess the QC of NGS data.\n\n7.2.1 Base quality\nIllumina sequencing technology relies on sequencing by synthesis. One of the most common problems with this is dephasing. For each sequencing cycle, there is a possibility that the replication machinery slips and either incorporates more than one nucleotide or perhaps misses to incorporate one at all. The more cycles that are run (i.e. the longer the read length gets), the greater the accumulation of these types of errors gets. This leads to a heterogeneous population in the cluster, and a decreased signal purity, which in turn reduces the precision of the base calling. The figure below shows an example of this.\n\n\n\nBase Quality\n\n\nBecause of dephasing, it is possible to have high-quality data at the beginning of the read but really low-quality data towards the end of the read. In those cases you can decide to trim off the low-quality reads. In this course, we’ll do this using the tool fastp. In addition to trimming and removing low quality reads, fastp will also be used to trim Illumina adapter/primer sequences.\nThe figures below show an example of high-quality read data (left) and poor quality read data (right).\n\n\n\n\n\n\nHigh-quality read data\n\n\n\n\n\n\n\nPoor quality read data\n\n\n\n\n\nIn addition to Phasing noise and signal decay resulting from dephasing issues described above, there are several different reasons for a base to be called incorrectly. You can lookup these later by clicking here.\n\n\n7.2.2 Mismatches per cycle\nAligning reads to a high-quality reference genome can provide insights into the quality of a sequencing run by showing you the mismatches to the reference sequence. In particular, this can help you detect cycle-specific errors. Mismatches can occur due to two main causes: sequencing errors and differences between your sample and the reference genome; this is important to bear in mind when interpreting mismatch graphs. The figures below show an example of a good run and a bad one. In the first figure, the distribution of the number of mismatches is even between the cycles, which is what we would expect from a good run. However, in the second figure, two cycles stand out with a lot of mismatches compared to the other cycles.\n\n\n\n\n\n\nGood run\n\n\n\n\n\n\n\nPoor run\n\n\n\n\n\n\n\n7.2.3 GC bias\nIt is a good idea to compare the GC content of the reads against the expected distribution in a reference sequence. The GC content varies between species, so a shift in GC content like the one seen below (right image) could be an indication of sample contamination. In the left image below, we can see that the GC content of the sample is about the same as for the theoretical reference, at ~65%. However, in the right figure, the GC content of the sample shows two distributions: one is closer to 40% and the other closer to 65%, indicating that there is an issue with this sample, likely contamination.\n\n\n\n\n\n\nSingle GC distribution\n\n\n\n\n\n\n\nDouble GC distribution\n\n\n\n\n\n\n\n7.2.4 GC content by cycle\nLooking at the GC content per cycle can help detect if the adapter sequence was trimmed. For a random library, there is expected to be little to no difference between the different bases of a sequence run, so the lines in this plot should be parallel with each other like in the first of the two figures below. In the second of the figures, the initial spikes are likely due to adapter sequences that have not been removed.\n\n\n\n\n\n\nGood run\n\n\n\n\n\n\n\nPoor run\n\n\n\n\n\n\n\n\n7.2.5 Insert size\nFor paired-end sequencing the size of DNA fragments also matters. In the first of the examples below, the insert size peaks around 440 bp. In the second however, there is also a peak at around 200 bp. This indicates that there was an issue with the fragment size selection during library prep.\n\n\n\n\n\n\nGood run\n\n\n\n\n\n\n\nPoor run\n\n\n\n\n\n\n\n7.2.6 Insertions/Deletions per cycle\nSometimes, air bubbles occur in the flow cell, and this can manifest as false indels. The spike in the second image provides an example of how this can look.\n\n\n\n\n\n\nGood run\n\n\n\n\n\n\n\nPoor run",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Sequence quality control",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to QC</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07-intro_qc.html#assessment-of-species-composition",
+    "href": "materials/07-intro_qc.html#assessment-of-species-composition",
+    "title": "7  Introduction to QC",
+    "section": "7.3 Assessment of species composition",
+    "text": "7.3 Assessment of species composition\nUnderstanding the species composition of sequence data is crucial for the accuracy and reliability of bioinformatics analyses, especially in the context of de novo genome assembly and metagenomics. In particular, for de novo genome assembly, knowing the species present in a sample can help identify and filter out contaminant sequences that do not belong to the target organism, improving the quality of the assembly. An abundance of non-target sequences also means fewer reads belonging to the target species leading to lower coverage when mapping these reads to a reference genome.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Sequence quality control",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to QC</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07-intro_qc.html#summary",
+    "href": "materials/07-intro_qc.html#summary",
+    "title": "7  Introduction to QC",
+    "section": "7.4 Summary",
+    "text": "7.4 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nCommon metrics to assess the quality of raw sequencing data include: base quality, mismatches per cycle, GC bias, GC content per cycle, insert size and indels per cycle.\nContamination of sequencing data with other organisms is problematic for applications such as de novo genome assembly.\nScreening the sequencing data for known species can help to remove potential contaminants.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Sequence quality control",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to QC</span>"
+    ]
+  },
+  {
+    "objectID": "materials/07-intro_qc.html#references",
+    "href": "materials/07-intro_qc.html#references",
+    "title": "7  Introduction to QC",
+    "section": "7.5 References",
+    "text": "7.5 References\nInformation on this page has been adapted and modified from the following sources:\n\nhttps://github.com/sanger-pathogens/QC-training\nhttps://www.bioinformatics.babraham.ac.uk/projects/fastqc/",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Sequence quality control",
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Introduction to QC</span>"
+    ]
+  },
+  {
+    "objectID": "materials/08-mapping.html",
+    "href": "materials/08-mapping.html",
+    "title": "8  Reference mapping",
+    "section": "",
+    "text": "8.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Reference-based assembly",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Reference mapping</span>"
+    ]
+  },
+  {
+    "objectID": "materials/08-mapping.html#summary",
+    "href": "materials/08-mapping.html#summary",
+    "title": "8  Reference mapping",
+    "section": "8.2 Summary",
+    "text": "8.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Reference-based assembly",
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Reference mapping</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09-variant_calling.html",
+    "href": "materials/09-variant_calling.html",
+    "title": "9  Variant calling",
+    "section": "",
+    "text": "9.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Reference-based assembly",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Variant calling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/09-variant_calling.html#summary",
+    "href": "materials/09-variant_calling.html#summary",
+    "title": "9  Variant calling",
+    "section": "9.2 Summary",
+    "text": "9.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Reference-based assembly",
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Variant calling</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10-lineages.html",
+    "href": "materials/10-lineages.html",
+    "title": "10  Lineage assignment",
+    "section": "",
+    "text": "10.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Reference-based assembly",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lineage assignment</span>"
+    ]
+  },
+  {
+    "objectID": "materials/10-lineages.html#summary",
+    "href": "materials/10-lineages.html#summary",
+    "title": "10  Lineage assignment",
+    "section": "10.2 Summary",
+    "text": "10.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Reference-based assembly",
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Lineage assignment</span>"
+    ]
+  },
+  {
+    "objectID": "materials/11-phylogenetics.html",
+    "href": "materials/11-phylogenetics.html",
+    "title": "11  Building phylogenetic trees",
+    "section": "",
+    "text": "11.1 Phylogenetic tree inference\nA phylogenetic tree is a graph (structure) representing evolutionary history and shared ancestry. It depicts the lines of evolutionary descent of different species, lineages or genes from a common ancestor. A phylogenetic tree is made of nodes and edges, with one edge connecting two nodes.\nA node can represent an extant species, and extinct one, or a sampled pathogen: these are all cases of “terminal” nodes, nodes in the tree connected to only one edge, and usually associated with data, such as a genome sequence.\nA tree also contains “internal” nodes: these usually represent most recent common ancestors (MRCAs) of groups of terminal nodes, and are typically not associated with observed data, although genome sequences and other features of these ancestors can be statistically inferred. An internal node is most often connected to 3 branches (two descendants and one ancestral), but a multifurcation node can have any number &gt;2 of descendant branches.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Building phylogenetic trees</span>"
+    ]
+  },
+  {
+    "objectID": "materials/11-phylogenetics.html#phylogenetic-tree-inference",
+    "href": "materials/11-phylogenetics.html#phylogenetic-tree-inference",
+    "title": "11  Building phylogenetic trees",
+    "section": "",
+    "text": "Example tree. The terminal nodes of this tree - A, B, C and D - represent sampled organisms. The internal nodes - E and F - are inferred from the data. In this case, there is also a multifurcation: nodes A, B and E all coalesce to the base of the tree. This can happen due to poor resolution in the data.\n\n\n\n11.1.1 Tree topology\nA clade is the set of all terminal nodes descending from the same ancestor. Each branch and internal node in a tree is associated with a clade. If two trees have the same clades, we say that they have the same topology. If they have the same clades and the same branch lengths, the two tree are equivalent, that is, they represent the same evolutionary history.\n\n\n11.1.2 Uses of phylogenetic trees\nIn many cases, the phylogenetic tree represents the end result of an analysis, for example if we are interested in the evolutionary history of a set of species.\nHowever, in many cases a phylogenetic tree represents an intermediate step, and there are many ways in which phylogenetic trees can be used to help understand evolution and the spread of infectious disease.\nIn other cases, we may want to know more about genome evolution, for example about mutational pressures, but more frequently about selective pressures. Selection can affect genome evolution in many ways such as slowing down evolution of a portion of the genome in which changes are deleterious (“purifying selection”). Conversely, “positive selection” can favor changes at certain positions of the genome, effectively accelerating their evolution. Using genome data and phylogenetic trees, molecular evolution methods can infer different types of selection acting in different parts of the genome and different branches of a tree.\n\n\n11.1.3 Newick format\nWe often need to represent trees in text format, for example to communicate them as input or output of phylogenetic inference software. The Newick format is the most common text format for phylogenetic trees.\nThe Newick format encloses each subtree (the part of a tree relating the terminal nodes part of the same clade) with parenthesis, and separates the two child nodes of the same internal node with a “,”. At the end of a Newick tree there is always a “;”.\nFor example, the Newick format of a rooted tree relating two samples “S1” and “S2”, with distances from the root respectively of 0.1 and 0.2, is\n(S1:0.1,S2:0.2);\nIf we add a third sample “S3” as an outgroup, the tree might become\n((S1:0.1,S2:0.2):0.3,S3:0.4);\n\n\n11.1.4 Methods for inferring phylogenetic trees\nA few different methods exist for inferring phylogenetic trees:\n\nDistance-based methods such as Neighbour-Joining and UPGMA\nParsimony-based phylogenetics\nMaximum likelihood methods making use of nuclotide substitution models\n\n\nDistance-based methods\nThese are the simplest and fastest phylogenetic methods we can use and are often a useful way to have a quick look at our data before running more robust phylogenetic methods. Here, we infer evolutionary distances from the multiple sequence alignment. In the example below there is 1 subsitution out of 16 informative columns (we exclude columns with gaps or N’s) so the distance is approximately 1/16:\n\n\n\nEvolutionary distance between two sequences\n\n\nTypically, we have multiple sequences in an alignment so here we would generate a matrix of pairwise distances between all samples (distance matrix) and then use Neighbour-Joining or UPGMA to infer our phylogeny:\n\n\n\nDistance matrix to Neighbour-Joining tree\n\n\n\n\nParsimony methods\nMaximum parsimony methods assume that the best phylogenetic tree requires the fewest number of mutations to explain the data (i.e. the simplest explanation is the most likely one). By reconstructing the ancestral sequences (at each node), maximum parsimony methods evaluate the number of mutations required by a tree then modify the tree a little bit at a time to improve it.\n\n\n\nExample of a maximum parsimony tree. In this case the tree topology on the left only requires one mutation to explain the data, whereas the tree on the right would require two mutations. Therefore, the maximum parsimony tree would be the one on the left.\n\n\nMaximum parsimony is an intuitive and simple method and is reasonably fast to run. However, because the most parsimonius tree is always the shortest tree, compared to the hypothetical “true” tree it will often underestimate the actual evolutionary change that may have occurred.\n\n\nMaximum likelihood methods\nThe most commonly encountered phylogenetic method when working with bacterial genome datasets is maximum likelihood. These methods use probabilistic models of genome evolution to evaluate trees and whilst similar to maximum parsimony, they allow statistical flexibility by permitting varying rates of evolution across different lineages and sites. This additional complexity means that maximum likelihood models are much slower than the previous two models discussed. Maximum likelihood methods make use of substitution models (models of DNA sequence evolution) that describe changes over evolutionary time. Two commonly used substitution models, Jukes-Cantor (JC69; assumes only one mutation rate) and Hasegawa, Kishino and Yano (HKY85; assumes different mutation rates - transitions have different rates) are depicted below:\n\n\n\nTwo commonly-used DNA substitution models\n\n\nIt is also possible to incorporate additional assumptions about your data e.g. assuming that a proportion of the the alignment columns (the invariant or constant sites) cannot mutate or that there is rate variation between the different alignment columns (columns may evolve at different rates). The choice of which is the best model to use is often a tricky one; generally starting with one of the simpler models e.g. General time reversible (GTR) or HKY is the best way to proceed. Accounting for rate variation and invariant sites is an important aspect to consider so using models like HKY+G4+I (G4 = four types of rate variation allowed; I = invariant sites don’t mutate) should also be considered.\nThere are a number of different tools for phylogenetic inference via maximum-likelihood and some of the most popular tools used for phylogenetic inference are FastTree, IQ-TREE and RAxML-NG. For this lesson, we’re going to use IQ-TREE as it is fast and has a large number of substitution models to consider. It also has a model finder option which tells IQ-TREE to pick the best fitting model for your dataset, thus removing the decision of which model to pick entirely.\n\n\n\n11.1.5 Tree uncertainty - bootstrap\nAll the methods for phylogenetic inference that we discussed so far aim at estimating a single realistic tree, but they don’t automatically tell us how confident we should be in the tree, or in individual branches of the tree.\nOne common way to address this limitation is using the phylogenetic bootstrap approach (Felsenstein, 1985). This consists of first sampling a large number (say, 1000) of bootstrap alignments. Each of these alignments has the same size as the original alignment, and is obtained by sampling with replacement the columns of the original alignment; in each bootstrap alignment some of the columns of the original alignment will usually be absent, and some other columns would be represented multiple times. We then infer a bootstrap tree from each bootstrap alignment. Because the bootstrap alignments differ from each other and from the original alignment, the bootstrap trees might different between each other and from the original tree. The bootstrap support of a branch in the original tree is then defined as the proportion of times in which this branch is present in the bootstrap trees.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Building phylogenetic trees</span>"
+    ]
+  },
+  {
+    "objectID": "materials/11-phylogenetics.html#multiple-sequence-alignments",
+    "href": "materials/11-phylogenetics.html#multiple-sequence-alignments",
+    "title": "11  Building phylogenetic trees",
+    "section": "11.2 Multiple sequence alignments",
+    "text": "11.2 Multiple sequence alignments\nPhylogenetic methods require sequence alignments. These can range from alignments of a single gene from different species to whole genome alignments where a sample’s sequence reads are mapped to a reference genome. Alignments attempt to place nucleotides from the same ancestral nucleotide in the same column. One of the most commonly used alignment formats in phylogenetics is FASTA:\n&gt;Sample_1\nAA-GT-T\n&gt;Sample_2\nAACGTGT\nN and - characters represent missing data and are interpreted by phylogenetic methods as such.\nThe two most commonly used muliple sequence alignments in bacterial genomics are reference-based whole genome alignments and core genome alignments generated by comparing genes between different isolates and identifying the genes found in all or nearly all isolates (the core genome). As a broad rule of thumb, if your species is not genetically diverse and doesn’t recombine (TB, Brucella) then picking a suitable good-quality reference and generating a whole genome alignment is appropriate. However, when you have a lot of diversity or multiple divergent lineages (E. coli) then a single reference may not represent all the diversity in your dataset. Here it would be more typical to create de novo assemblies, annotate them and then use a tool like roary or panaroo to infer the pan-genome and create a core genome alignment. The same phylogenetic methods are then applied to either type of multiple sequence alignment.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Building phylogenetic trees</span>"
+    ]
+  },
+  {
+    "objectID": "materials/11-phylogenetics.html#building-a-phylogenetic-tree",
+    "href": "materials/11-phylogenetics.html#building-a-phylogenetic-tree",
+    "title": "11  Building phylogenetic trees",
+    "section": "11.3 Building a phylogenetic tree",
+    "text": "11.3 Building a phylogenetic tree\nFollowing that very brief introduction to phylogenetics, we can start building our first phylogenetic tree using the masked alignment file we created in the previous section.\nWe start our analysis by activating our software environment, to make all the necessary tools available:\nmamba activate iqtree\n\n11.3.1 Extracting variable sites with SNP-sites\nAlthough you could use the alignment generated by bactmap directly as input to IQ-TREE, this would be quite computationally intensive, because the whole genome alignments tend to be quite large. Instead, what we can do is extract the variable sites from the alignment, such that we reduce our FASTA file to only include those positions that are variable across samples i.e. the positions that are phylogenetically informative.\nHere is a small example illustrating what we are doing. For example, take the following three sequences, where we see 3 variable sites (indicated with an arrow):\nseq1  C G T A G C T G G T\nseq2  C T T A G C A G G T\nseq3  C T T A G C A G A T\n        ↑         ↑   ↑\nFor the purposes of phylogenetic tree construction, we only use the variable sites to look at the relationship between our sequences, so we can simplify our alignment by extract only the variable sites:\nseq1  G T G\nseq2  T A G\nseq3  T A A\nThis example is very small, but when you have megabase-sized genomes, this can make a big difference. To extract variable sites from an alignment we can use the snp-sites software:\n# create output directory\nmkdir results/snp-sites\n\n# run SNP-sites\nsnp-sites results/bactmap/masked_alignment/aligned_pseudogenomes_masked.fas -o results/snp-sites/aligned_pseudogenomes_masked_snps.fas\nThis command simply takes as input the alignment FASTA file and produces a new file with only the variable sites - which we save (-o) to an output file. This is the file we will use as input to constructing our tree. However, before we move on to that step, we need another piece of information: the number of constant sites in the initial alignment (sites that didn’t vary in our alignment). Phylogenetically, it makes a difference if we have 3 mutations in 10 sites (30% variable sites, as in our small example above) or 3 mutations in 1000 sites (0.3% mutations). The IQ-TREE software we will use for tree inference can accept as input 4 numbers, counting the number of A, C, G and T that were constant in the alignment. For our small example above these would be, respectively: 1, 2, 2, 2.\nFortunately, the snp-sites command can also produce these numbers for us (you can check this in the help page by running snp-sites -h). This is how you would do this:\n# count invariant sites\nsnp-sites -C results/bactmap/masked_alignment/aligned_pseudogenomes_masked.fas &gt; results/snp-sites/constant_sites.txt\nThe key difference is that we use the -C option, which produces these numbers. We redirect (&gt;) the output to a file. We can see what these numbers are by printing the content of the file:\ncat results/snp-sites/constant_sites.txt\n692240,1310839,1306835,691662\nAs we said earlier, these numbers represent the number of A, C, G, T that were constant in our original alignment. We will use these numbers in the tree inference step detailed next.\n\n\n11.3.2 Tree inference with IQ-TREE\nThere are different methods for inferring phylogenetic trees from sequence alignments. Regardless of the method used, the objective is to construct a tree that represents the evolutionary relationships between different species or genetic sequences. Here, we will use the IQ-TREE software, which implements maximum likelihood methods of tree inference. IQ-TREE offers various sequence evolution models, allowing researchers to match their analyses to different types of data and research questions. Conveniently, this software can identify the most fitting substituion model for a dataset (using a tool called ModelFinder), while considering the complexity of each model.\nWe run IQ-TREE on the output from snp-sites, i.e. using the variable sites extracted from the core genome alignment:\n# create output directory\nmkdir results/iqtree\n\n# run iqtree2\niqtree \\\n  -s results/snp-sites/aligned_pseudogenomes_masked_snps.fas \\\n  -fconst 692240,1310839,1306835,691662 \\\n  --prefix results/iqtree/Nam_TB \\\n  -nt AUTO \\\n  -ntmax 8 \\\n  -mem 8G \\\n  -m GTR+F+I \\\n  -bb 1000\nThe options used are:\n\n-s - the input alignment file, in our case using only the variable sites extracted with snp-sites.\n--prefix - the name of the output files. This will be used to name all the files with a “prefix”. In this case we are using the “Nam_TB” prefix, which refers to the data we’re using.\n-fconst - these are the counts of invariant sites we estimated in the previous step with snp-sites (see previous section).\n-nt AUTO - automatically detect how many CPUs are available on the computer for parallel processing (quicker to run).\n-ntmax 8 - set the maximum number of CPUs to use\n-mem 8G - set the maximum amount of RAM to use\n-m - specifies the DNA substitution model we’d like to use. We give more details about this option below.\n-bb 1000 - run 1000 fast bootstraps. See the section on bootstrapping above.\n\nWhen not specifying the -m option, IQ-TREE employs ModelFinder to pinpoint the substitution model that best maximizes the data’s likelihood, as previously mentioned. Nevertheless, this can be time-consuming (as IQ-TREE needs to fit trees numerous times). An alternative approach is utilizing a versatile model, like the one chosen here, “GTR+F+I,” which is a generalized time reversible (GTR) substitution model. This model requires an estimate of the base frequencies within the sample population, determined in this instance by tallying the base frequencies from the alignment (indicated by “+F” in the model name). Lastly, the model accommodates variations in rates across sites, including a portion of invariant sites (noted by “+I” in the model name).\nWe can look at the output folder:\nls results/iqtree\nNam_TB.bionj   Nam_TB.log     Nam_TB.mldist\nNam_TB.ckp.gz  Nam_TB.iqtree  Nam_TB.treefile\nThere are several files with the following extensions:\n\n.iqtree - a text file containing a report of the IQ-Tree run, including a representation of the tree in text format.\n.treefile - the estimated tree in NEWICK format. We can use this file with other programs, such as FigTree, to visualise our tree.\n.log - the log file containing the messages that were also printed on the screen.\n.bionj - the initial tree estimated by neighbour joining (NEWICK format).\n.mldist - the maximum likelihood distances between every pair of sequences.\n.ckp.gz - this is a “checkpoint” file, which IQ-Tree uses to resume a run in case it was interrupted (e.g. if you are estimating very large trees and your job fails half-way through). \n\nThe main files of interest are the report file (.iqtree) and the tree file (.treefile) in standard Newick format.\n\n\n\n\n\n\nExerciseExercise 1 - Tree inference\n\n\n\n\n\n\nProduce a tree from the masked pseudogenome alignment from we created in the previous section.\n\nActivate the software environment: mamba activate iqtree.\nFix the script provided in scripts/06-run_iqtree.sh. See Section 11.3.2 if you need a hint of how to fix the code in the script.\nRun the script using bash scripts/06-run_iqtree.sh. Several messages will be printed on the screen while iqtree runs.\n\n\n\n\n\n\n\nAnswerAnswer\n\n\n\n\n\n\nThe fixed script is:\n#!/bin/bash\n\n# create output directory\nmkdir -p results/snp-sites/\nmkdir -p results/iqtree/\n\n# extract variable sites\nsnp-sites results/bactmap/masked_alignment/aligned_pseudogenomes_masked.fas &gt; results/snp-sites/aligned_pseudogenomes_masked_snps.fas\n\n# count invariant sites\nsnp-sites -C results/bactmap/masked_alignment/aligned_pseudogenomes_masked.fas &gt; results/snp-sites/constant_sites.txt\n\n# Run iqtree\niqtree \\\n  -fconst $(cat results/snp-sites/constant_sites.txt) \\\n  -s results/snp-sites/aligned_pseudogenomes_masked_snps.fas \\\n  --prefix results/iqtree/Nam_TB \\\n  -nt AUTO \\\n  -ntmax 8 \\\n  -mem 8G \\\n  -m GTR+F+I \\\n  -bb 1000\n\nWe extract the variant sites and count of invariant sites using SNP-sites.\nAs input to both snp-sites steps, we use the aligned_pseudogenomes_masked_snps.fas produced in the previous step of our analysis.\nThe input alignment used in iqtree is the one from the previous step.\nThe number of constant sites was specified in the script as $(cat results/snp-sites/constant_sites.txt). This allows to directly add the contents of the constant_sites.txt file, without having to open the file to obtain these numbers.\nWe use as prefix for our output files “Nam_TB” (since we are using the “Namibian TB” data), so all the output file names will be named as such.\nWe automatically detect the number of threads/CPUs for parallel computation.\nWe specify the maximum amount of memory and threads/CPUs to use for computation.\n\nAfter the analysis runs we get several output files in our directory:\nls results/iqtree/\nNam_TB.bionj   Nam_TB.log     Nam_TB.mldist\nNam_TB.ckp.gz  Nam_TB.iqtree  Nam_TB.treefile\nThe main file of interest is Nam_TB.treefile, which contains our tree in the standard Newick format. We will root and then visualize this tree alongside relevant metadata in Visualising phylogenies.\n\n\n\n\n\n\n\n\n\n\n11.3.3 Rooting a phylogenetic tree\nRooting a phylogenetic tree is essential for making sense of evolutionary relationships and for providing a temporal context to the diversification of species. It transforms an unrooted tree, which simply shows relationships without direction, into a meaningful representation of evolutionary history. The most common way to accurately root a phylogenetic tree is to include an outgroup that is known to be more distantly related to the taxa included as part of the analysis. In our example we mapped our TB sequences to the MTBC0 reference, which is an outgroup to all members of the MTBC, so we’ll use this to root our tree before visualizing it. There are a few different tools that could be used to root a phylogenetic tree but we’ve provided a python script, root_tree.py to do this. You can run the script using the following command (we’re going to root the tree we’ve provided in the preprocessed directory so you don’t need to edit the command):\npython scripts/root_tree.py -i preprocessed/iqtree/Nam_TB.treefile -g MTBC0 -o results/iqtree/Nam_TB_rooted.treefile\nThe options we used are:\n\n-i - the TB phylogenetic tree we inferred with IQ-TREE.\n-g - the name of the outgroup to root the tree with (in this case MTBC0).\n-o - the rooted phylogenetic tree.\n\nThis will create a NEWICK file called Nam_TB_rooted.treefile in your results directory.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Building phylogenetic trees</span>"
+    ]
+  },
+  {
+    "objectID": "materials/11-phylogenetics.html#summary",
+    "href": "materials/11-phylogenetics.html#summary",
+    "title": "11  Building phylogenetic trees",
+    "section": "11.4 Summary",
+    "text": "11.4 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nTree inference methods include neighbor-joining, maximum parsimony and maximum likelihood. The first two are simpler and computationally faster, but do not accurately capture relevant features of sequence evolution.\nMaximum likelihood methods are recommended, as they incorporate relevant parameters such as different substitution rates, invariant sites and variable mutation rates across the sequence.\nPhylogenetic tree inference requires a multiple sequence alignment as input, regardless of which method of inference is used.\nTo reduce the computational burden of the analysis when using whole-genome alignments, we can extract variable sites from our alignment using the snp-sites software.\nIQ-Tree is a popular software for maximum likelihood tree inference and can take as input the variable sites from the previous step.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Building phylogenetic trees</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12-tree_visualization.html",
+    "href": "materials/12-tree_visualization.html",
+    "title": "12  Visualising phylogenies",
+    "section": "",
+    "text": "12.1 Uploading tree files and metadata\nThere are many programs that can be used to visualise phylogenetic trees. Some of the popular programs include FigTree, iTOL and the R library ggtree. For this course, we’re going to use the web-based tool Microreact as it allows users to interactively manipulate the tree, add metadata and generate other plots including maps and histograms of metadata variables in a single interface.\nIn order to use this platform you will first need to create an account (or sign-in through your existing Google, Facebook or Twitter).\nOnce you’ve logged into Microreact, you can upload the rooted Namibian TB tree file (Nam_TB_rooted.treefile) and combined metadata TSV file (TB_metadata.tsv) we created earlier.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Visualising phylogenies</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12-tree_visualization.html#uploading-tree-files-and-metadata",
+    "href": "materials/12-tree_visualization.html#uploading-tree-files-and-metadata",
+    "title": "12  Visualising phylogenies",
+    "section": "",
+    "text": "Click on the UPLOAD link in the top-right corner of the page:\n\n\n\nClick the + button on the bottom-right corner then Browse Files to upload the files:\n\n\n\nThis will open a file browser, where you can select the tree file and metadata from your local machine. Go to the M_tuberculosis directory where you have the results we’ve generated so far this week. Click and select the Nam_TB_rooted.treefile and TB_metadata.tsv files while holding the Ctrl key. Click Open on the dialogue window after you have selected both files.\n\n\n\nA new dialogue box will open with files you’ve uploaded and the File kind which is done automatically by Microreact. As the File kind for both files is correct, go ahead and click CONTINUE:\n\n\n\nMicroreact will load the data and process it. The final step before we can have a look at the tree and annotate it is to confirm to Microreact which column in the metadata corresponds to the tip labels in the tree so it can match them. By default Microreact will use the first column, in this case sample which is correct so click CONTINUE:\n\n\n\nYou should now see three windows in front of you. The top-left has a map with the locations of your isolates based on the longitude and latitude values included in TB_metadata.tsv. The top-right has the phylogenetic tree with a separate colour for each tip (by default Microreact will colour the tips by BorstelID). Across the bottom you have the metadata from TB_metadata.tsv.\n\n\n\nThe first thing we’re going to do is change the colour of the tip nodes to Region. Click on the Eye icon in the top-right hand corner and change Colour Column to Region:\n\n\n\nThis will change the colour of the tip nodes as well as the pie charts on the map - each region has its own colour as you’d expect:\n\n\n\nAt this point, before we proceed any further, let’s save the project to your accounts. Click on the Save button in the top-right corner, change the project name to Namibia TB and add some kind of description so you know what the dataset is. Then click Save as a New Project (another dialogue box will appear asking if you want to share your project; for now, close this box):\n\n\n\nNow, let’s make our phylogenetic tree a bit more informative. First, let’s add the tip labels to the display by clicking on the left-hand of the two buttons in the phylogeny window then the drop down arrow next to Nodes & Labels. Now click the slider next to Leaf Labels and the slider next to Align Leaf Labels. We’ll also make the text a little smaller by moving the slider to 12px:\n\n\n\nThe tip labels are still the European Nuclotide Accessions we used to download the FASTQ files. Let’s change the tip labels to the BorstelID which is what’s used in the paper. Click on the Eye icon again and change Labels Column to BorstelID:\n\n\n\nFrom the rooted tree, we can see we have two distinct clades within the tree. These are the two major lineages we identified in our dataset (Lineage 2 and Lineage 4). To make this clearer, change the colour of the tip nodes to main_lineage and click on Legend on the far right-hand side of the plot. Now we have a tree and map annotated with the two lineages in our dataset:\n\n\n\nThe last thing we’re going to do is add a histogram to show the frequency of lineages across the different regions to our Microreact window. Click on the Pencil icon on the top-right corner and click Create New Chart then move your mouse into the right hand side of the metadata box at the bottom of the window and click when you see the blue box appear. A blank chart should appear. Click Chart Type and select Bar chart and change the X Axis Column to Region. The plot should auto populate with the region on the X-axis and the Number of entries on the Y-axis. The bars are coloured according to main_lineage which is what we’re currently using to colour our plots:\n\n\n\n\n\n\n\n\nTipLatitude and longitude for countries\n\n\n\nIf you have information about which countries your samples come from, you can obtain latitude and longitude coordinates by using the Data-flo web application. Data-flo provides several convenience data transformation applications, one of which is called “Geocoder”.\n\nGo to data-flo.io\nOn the top toolbar click on “Transformations”\nSearch for “Geocoder”\nClick on “Run”\nPaste your country names in the “Inputs” box (you can copy these from your metadata table)\nClick “Run”\nOnce it finishes, scroll all the way down and click on the file link “locations.csv” to download a file containing all the country coordinates\nYou can then open your original metadata file and add these two columns to your metadata\n\nOnce you have this information, it will be possible to display your samples on a map using Microreact.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Visualising phylogenies</span>"
+    ]
+  },
+  {
+    "objectID": "materials/12-tree_visualization.html#summary",
+    "href": "materials/12-tree_visualization.html#summary",
+    "title": "12  Visualising phylogenies",
+    "section": "12.2 Summary",
+    "text": "12.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nMicroreact is a free web app to visualise phylogenetic trees.\nIt supports tree files in standard NEWICK format, as output by IQ-Tree.\nIt also supports metadata for the samples, which can be used to configure the tree.\nMetadata such as latitude and longitude is also used to display the samples on a map.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Visualising phylogenies</span>"
+    ]
+  },
+  {
+    "objectID": "materials/13-phylogeography.html",
+    "href": "materials/13-phylogeography.html",
+    "title": "13  Phylogeography",
+    "section": "",
+    "text": "13.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Phylogeography</span>"
+    ]
+  },
+  {
+    "objectID": "materials/13-phylogeography.html#summary",
+    "href": "materials/13-phylogeography.html#summary",
+    "title": "13  Phylogeography",
+    "section": "13.2 Summary",
+    "text": "13.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Phylogenetics",
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Phylogeography</span>"
+    ]
+  },
+  {
+    "objectID": "materials/14-assembly.html",
+    "href": "materials/14-assembly.html",
+    "title": "14  de novo assembly",
+    "section": "",
+    "text": "14.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "De-novo assembly",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>de novo assembly</span>"
+    ]
+  },
+  {
+    "objectID": "materials/14-assembly.html#summary",
+    "href": "materials/14-assembly.html#summary",
+    "title": "14  de novo assembly",
+    "section": "14.2 Summary",
+    "text": "14.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "De-novo assembly",
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>de novo assembly</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15-assembly_qc.html",
+    "href": "materials/15-assembly_qc.html",
+    "title": "15  Assembly quality control",
+    "section": "",
+    "text": "15.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "De-novo assembly",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Assembly quality control</span>"
+    ]
+  },
+  {
+    "objectID": "materials/15-assembly_qc.html#summary",
+    "href": "materials/15-assembly_qc.html#summary",
+    "title": "15  Assembly quality control",
+    "section": "15.2 Summary",
+    "text": "15.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "De-novo assembly",
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Assembly quality control</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16-recombination.html",
+    "href": "materials/16-recombination.html",
+    "title": "16  Recombination",
+    "section": "",
+    "text": "16.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Recombination",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Recombination</span>"
+    ]
+  },
+  {
+    "objectID": "materials/16-recombination.html#summary",
+    "href": "materials/16-recombination.html#summary",
+    "title": "16  Recombination",
+    "section": "16.2 Summary",
+    "text": "16.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Recombination",
+      "<span class='chapter-number'>16</span>  <span class='chapter-title'>Recombination</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17-phylogenetics.html",
+    "href": "materials/17-phylogenetics.html",
+    "title": "17  Phylogenetics",
+    "section": "",
+    "text": "17.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Recombination",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Phylogenetics</span>"
+    ]
+  },
+  {
+    "objectID": "materials/17-phylogenetics.html#summary",
+    "href": "materials/17-phylogenetics.html#summary",
+    "title": "17  Phylogenetics",
+    "section": "17.2 Summary",
+    "text": "17.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Recombination",
+      "<span class='chapter-number'>17</span>  <span class='chapter-title'>Phylogenetics</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18-surveillance.html",
+    "href": "materials/18-surveillance.html",
+    "title": "18  Surveillance",
+    "section": "",
+    "text": "18.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Metaviromics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Surveillance</span>"
+    ]
+  },
+  {
+    "objectID": "materials/18-surveillance.html#summary",
+    "href": "materials/18-surveillance.html#summary",
+    "title": "18  Surveillance",
+    "section": "18.2 Summary",
+    "text": "18.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Metaviromics",
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Surveillance</span>"
+    ]
+  },
+  {
+    "objectID": "materials/19-abundance.html",
+    "href": "materials/19-abundance.html",
+    "title": "19  Abundance",
+    "section": "",
+    "text": "19.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Metaviromics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Abundance</span>"
+    ]
+  },
+  {
+    "objectID": "materials/19-abundance.html#summary",
+    "href": "materials/19-abundance.html#summary",
+    "title": "19  Abundance",
+    "section": "19.2 Summary",
+    "text": "19.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Metaviromics",
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Abundance</span>"
+    ]
+  },
+  {
+    "objectID": "materials/20-visualisation.html",
+    "href": "materials/20-visualisation.html",
+    "title": "20  Visualising metagenomic data",
+    "section": "",
+    "text": "20.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Metaviromics",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Visualising metagenomic data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/20-visualisation.html#summary",
+    "href": "materials/20-visualisation.html#summary",
+    "title": "20  Visualising metagenomic data",
+    "section": "20.2 Summary",
+    "text": "20.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Metaviromics",
+      "<span class='chapter-number'>20</span>  <span class='chapter-title'>Visualising metagenomic data</span>"
+    ]
+  },
+  {
+    "objectID": "materials/21-outbreak.html",
+    "href": "materials/21-outbreak.html",
+    "title": "21  Outbreak investigation",
+    "section": "",
+    "text": "21.1 Section\nHeadings for material sections start at level 2.\nMore guidelines for content available here: https://cambiotraining.github.io/quarto-course-template/materials/02-content_guidelines.html",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Outbreak!",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Outbreak investigation</span>"
+    ]
+  },
+  {
+    "objectID": "materials/21-outbreak.html#summary",
+    "href": "materials/21-outbreak.html#summary",
+    "title": "21  Outbreak investigation",
+    "section": "21.2 Summary",
+    "text": "21.2 Summary\n\n\n\n\n\n\nTipKey Points\n\n\n\n\nLast section of the page is a bulleted summary of the key points",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Outbreak!",
+      "<span class='chapter-number'>21</span>  <span class='chapter-title'>Outbreak investigation</span>"
+    ]
+  },
+  {
+    "objectID": "versions.html",
+    "href": "versions.html",
+    "title": "Archived Versions",
+    "section": "",
+    "text": "Select a version to view the course materials as they were at that time.\nEach version represents a snapshot of the course materials at a specific point in time. This allows participants to access the exact version of the materials they used during their course, even as the content continues to evolve.\nThe latest version always contains the most up-to-date content and improvements.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Appendices",
+      "Archived Versions"
+    ]
+  },
+  {
+    "objectID": "materials/appendices/01-file_formats.html",
+    "href": "materials/appendices/01-file_formats.html",
+    "title": "Appendix A — Common file formats",
+    "section": "",
+    "text": "This page lists some common file formats used in Bioinformatics (listed alphabetically). The heading of each file links to a page with more details about each format.\nGenerally, files can be classified into two categories: text files and binary files.\n\nText files can be opened with standard text editors, and manipulated using command-line tools (such as head, less, grep, cat, etc.). However, many of the standard files listed in this page can be opened with specific software that displays their content in a more user-friendly way. For example, the NEWICK format is used to store phylogenetic trees and, although it can be opened in a text editor, it is better used with a software such as FigTree to visualise the tree as a graph.\nBinary files are often used to store data more efficiently. Typically, specific tools need to be used with those files. For example, the BAM format is used to store sequences aligned to a reference genome and can be manipulated with dedicated software such as samtools.\n\nVery often, text files may be compressed to save storage space. A common compression format used in bioinformatics is gzip with has extension .gz. Many bioinformatic tools support compressed files. For example, FASTQ files (used to store NGS sequencing data) are often compressed with format .fq.gz.\n\nBAM (“Binary Alignment Map”)\n\nBinary file.\nSame as a SAM file but compressed in binary form.\nFile extensions: .bam\n\n\n\nBED (“Browser Extensible Data”)\n\nText file.\nStores coordinates of genomic regions.\nFile extension: .bed\n\n\n\nCSV (“Comma Separated Values”)\n\nText file.\nStores tabular data in a text file. (also see TSV format)\nFile extensions: .csv\n\nThese files can be opened with spreadsheet programs (such as Microsoft Excel). They can also be created from spreadsheet programs by going to File &gt; Save As… and select “CSV (Comma delimited)” as the file format.\n\n\nFAST5\n\nBinary file. More specifically, this is a Hierarchical Data Format (HDF5) file.\nUsed by Nanopore platforms to store the called sequences (in FASTQ format) as well as the raw electrical signal data from the pore.\nFile extensions: .fast5\n\n\n\nFASTA\n\nText file.\nStores nucleotide or amino acid sequences.\nFile extensions: .fa or .fas or .fasta\n\n\n\nFASTQ\n\nText file, but often compressed with gzip.\nStores sequences and their quality scores.\nFile extensions: .fq or .fastq (compressed as .fq.gz or .fastq.gz)\n\n\n\nGFF (“General Feature Format”)\n\nText file.\nStores gene coordinates and other features.\nFile extension: .gff\n\n\n\nNEWICK\n\nText file.\nStores phylogenetic trees including nodes names and edge lengths.\nFile extensions: .tree or .treefile\n\n\n\nSAM (“Sequence Alignment Map”)\n\nText file.\nStores sequences aligned to a reference genome. (also see BAM format)\nFile extensions: .sam\n\n\n\nTSV (“Tab-Separated Values”)\n\nText file.\nStores tabular data in a text file. (also see CSV format)\nFile extensions: .tsv or .txt\n\nThese files can be opened with spreadsheet programs (such as Microsoft Excel). They can also be created from spreadsheet programs by going to File &gt; Save As… and select “Text (Tab delimited)” as the file format.\n\n\nVCF (“Variant Calling Format”)\n\nText file but often compressed with gzip.\nStores SNP/Indel variants\nFile extension: .vcf (or compressed as .vcf.gz)",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>Common file formats</span>"
+    ]
+  },
+  {
+    "objectID": "materials/appendices/02-course_software.html",
+    "href": "materials/appendices/02-course_software.html",
+    "title": "Appendix B — Course Software",
+    "section": "",
+    "text": "This page lists the tools used during this course (listed alphabetically). The heading of each file links to a page with more details about each tool.\n\nBakta\nBakta is a software tool designed for the rapid and accurate annotation of bacterial genomes. It automates the process of identifying and categorizing genes and other functional elements within bacterial DNA sequences. otation\n\n\nBCFtools\nBCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart, BCF. It is widely used for filtering, querying, merging, and annotating genomic variants, making it an essential tool in bioinformatics pipelines for genomic data analysis.\n\n\nBracken\nBracken (Bayesian Reestimation of Abundance with KrakEN) is a bioinformatics tool designed to improve the accuracy of species abundance estimation in metagenomic samples. It refines the results from Kraken by using Bayesian statistics to re-estimate the abundance of species, providing more precise and reliable microbial community profiles.\n\n\nBWA\nBWA (Burrows-Wheeler Aligner) is a fast and efficient software tool for aligning short DNA sequences to a reference genome. It supports various alignment algorithms, including BWA-MEM for high-quality alignments of sequences ranging from a few base pairs to hundreds of kilobases, making it a widely used tool in next-generation sequencing analysis.\n\n\nCheckM2\nCheckM2 is an advanced bioinformatics tool used for assessing the quality and completeness of microbial genomes and metagenome-assembled genomes (MAGs). It provides accurate estimates of genome completeness and contamination by leveraging a curated set of marker genes, which helps ensure the reliability of genomic data for downstream analyses.\n\n\nfastp\nfastp is a versatile and high-performance tool designed for preprocessing high-throughput sequencing data. It performs quality control, filtering, trimming, and adapter removal with a focus on speed and accuracy, making it an essential component of modern genomic data analysis pipelines.\n\n\nfastQC\nFastQC is a widely used bioinformatics tool that provides a comprehensive overview of the quality of high-throughput sequencing data. It generates detailed reports on various quality metrics, such as per-base sequence quality, GC content, and sequence duplication levels, helping researchers identify and address potential issues in their sequencing datasets.\n\n\nfastq-scan\nfastq-scan is a lightweight and efficient tool designed to quickly summarize basic quality metrics from FASTQ files. It provides essential statistics, such as read length distribution and GC content, without the computational overhead of more comprehensive tools, making it ideal for initial quality assessments of sequencing data.\n\n\nGubbins\nGubbins (Genealogies Unbiased By recomBinations In Nucleotide Sequences) is a bioinformatics tool used to detect and account for recombination in bacterial whole-genome sequence data. By identifying recombinant regions and reconstructing the underlying phylogeny, Gubbins helps ensure accurate evolutionary analyses and inferences.\n\n\nIQ-TREE\nIQ-TREE is a fast and efficient software tool for constructing phylogenetic trees based on maximum likelihood estimation. It supports a wide range of evolutionary models and provides advanced features such as ultrafast bootstrap approximation and model selection, making it a popular choice for high-quality phylogenetic analysis.\n\n\nKraken 2\nKraken 2 is a powerful bioinformatics tool used for taxonomic classification of sequencing reads from metagenomic or genomic datasets. It rapidly assigns taxonomic labels to reads based on k-mer matches to a user-defined reference database, facilitating the characterization of microbial communities and the detection of pathogens in complex samples.\n\n\nKrona\nKrona is a set of scripts to create Krona charts from several bioinformatics tools as well as from text and XML files.\n\n\nmash\nmash is a computational tool used for fast genome and metagenome distance estimation based on k-mer similarity. It enables rapid comparison of large genomic datasets by compressing sequences into sketch files, allowing efficient retrieval of pairwise distances between genomes or metagenomes.\n\n\nmlst\nmlst facilitates the analysis of Multi-Locus Sequence Typing data by automating allele calling and sequence comparison across bacterial isolates. It generates profiles that define the sequence types (STs) of each isolate based on allele variations in designated loci, crucial for studying bacterial population dynamics and genetic diversity.\n\n\nMultiQC\nMultiQC is a versatile tool used for aggregating and visualizing quality control metrics from multiple bioinformatics analyses in a single comprehensive report. It simplifies the assessment of data quality across diverse sequencing experiments and facilitates rapid identification of potential issues or trends in large datasets.\n\n\nNextflow\nNextflow is a data-driven workflow management system designed for scalable and reproducible scientific workflows. It simplifies the deployment and execution of complex computational pipelines across different computing environments, enhancing collaboration and facilitating the integration of diverse bioinformatics tools and data sources.\n\n\npairsnp\npairsnp is a bioinformatics tool used for comparing whole-genome sequences and identifying single nucleotide polymorphisms (SNPs) between pairs of genomes. It provides a rapid and efficient method for genome-wide SNP detection, aiding in the study of genetic variation and evolutionary relationships among bacterial or viral isolates.\n\n\nPanaroo\nPanaroo is a bioinformatics tool used for pan-genome analysis, which identifies core and accessory genes across multiple genomes of related organisms. It efficiently clusters and annotates genes to reveal the genomic diversity within a species or strain collection, aiding in understanding evolutionary dynamics and functional differences among microbial populations.\n\n\nQUAST\nQUAST (Quality Assessment Tool for Genome Assemblies) is a software tool used for evaluating the quality of genome assemblies. It provides comprehensive metrics and graphical reports to assess key aspects such as contiguity, accuracy, and completeness, aiding researchers in optimizing genome assembly strategies and comparing different assembly methods.\n\n\nRasusa\nRasusa is a bioinformatics tool used for simulating sequencing reads from reference genomes with specified sequencing error profiles and sequencing depths. It enables researchers to evaluate and benchmark bioinformatics pipelines by generating synthetic datasets that mimic real-world sequencing data characteristics.\n\n\nremove_blocks_from_aln.py\nremove_blocks_from_aln.py is a Python script used for removing blocks of sequences from a multiple sequence alignment (MSA) based on specified criteria such as sequence identity or gap content. It facilitates the preprocessing of alignments to focus on conserved regions or to remove poorly aligned or ambiguous sequences, improving downstream phylogenetic or evolutionary analyses.\n\n\nSAMtools\nSAMtools is a widely used software suite for manipulating sequencing alignment files in the SAM/BAM format. It provides essential functions such as file format conversion, sorting, indexing, and variant calling, making it indispensable in genomics research and variant analysis workflows.\n\n\nseqtk\nseqtk is a versatile toolkit for processing sequences in FASTA and FASTQ formats. It includes tools for subsetting sequences, extracting specific regions, filtering by quality, and converting between different sequence formats, facilitating various bioinformatics analyses and preprocessing tasks.\n\n\nShovill\nShovill is a bioinformatics tool designed for fast and accurate de novo assembly of microbial genomes from Illumina sequencing data. It automates the assembly process, including read trimming, error correction, and scaffolding, providing comprehensive genome assemblies suitable for downstream genomic analysis and comparative genomics studies.\n\n\nSNP-sites\nSNP-sites is a software tool used for identifying and extracting variable sites (SNPs) from a multiple sequence alignment (MSA). It efficiently detects polymorphic positions across aligned sequences, essential for population genetics, phylogenetics, and evolutionary studies based on genomic data.\n\n\nTB-Profiler\nTB-Profiler is a bioinformatics tool used for analyzing Mycobacterium tuberculosis genomes to detect mutations associated with drug resistance and lineage classification. It provides a comprehensive analysis of resistance profiles and strain lineages based on genomic data, aiding in clinical diagnostics and epidemiological surveillance of tuberculosis.\n\n\nTreeTime\nTreeTime is a tool used for molecular clock phylogenetic analysis, which estimates the evolutionary timescale of genetic sequences by integrating sequence data with a phylogenetic tree. It performs ancestral reconstruction and divergence dating, providing insights into the timing of evolutionary events within microbial populations or viral lineages.",
+    "crumbs": [
+      "{{< iconify fa6-brands github size=lg title='CRIT GitHub' >}}",
+      "Appendices",
+      "<span class='chapter-number'>B</span>  <span class='chapter-title'>Course Software</span>"
+    ]
+  }
+]
